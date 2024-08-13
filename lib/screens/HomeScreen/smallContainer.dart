@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class SmallContainer extends StatelessWidget {
   final Color backgroundColor;
@@ -14,30 +15,24 @@ class SmallContainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
+      crossAxisAlignment: CrossAxisAlignment.center,
       children: [
-        ClipRRect(
-          borderRadius: BorderRadius.circular(15),
-          child: Container(
-            margin: EdgeInsets.symmetric(horizontal: 5),
-            height: 80,
-            width: 80,
-            decoration: BoxDecoration(
-              color: backgroundColor,
-              borderRadius: BorderRadius.circular(15),
-              image: DecorationImage(
-                image: AssetImage(imagePath),
-                fit: BoxFit.cover,
-              ),
+      ClipRRect(
+            borderRadius: BorderRadius.circular(20.0), // Radius of the corners
+            child: Image.asset(
+              imagePath, // Replace with your image asset
+              width: 70.0, // Set the desired width
+              height: 70.0, // Set the desired height
+              fit: BoxFit.fill, // Ensures the image covers the entire area
             ),
           ),
-        ),
         SizedBox(height: 5),
         Text(
           text,
-          style: TextStyle(
-            fontSize: 16,
-            fontWeight: FontWeight.bold,
+          style: GoogleFonts.almarai(
+            fontSize: 11,
             color: Colors.black,
+            fontWeight: FontWeight.bold
           ),
         ),
       ],
