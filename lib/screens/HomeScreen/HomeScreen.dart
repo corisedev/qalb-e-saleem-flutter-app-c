@@ -27,7 +27,7 @@ class _HomescreenState extends State<Homescreen> {
                 },
                 child: Container(
                   width: double.infinity,
-                  height: MediaQuery.of(context).size.height * 0.29,
+                  height: MediaQuery.of(context).size.height * 0.33,
                   margin: EdgeInsets.symmetric(horizontal: 10, vertical: 30),
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(20),
@@ -41,7 +41,7 @@ class _HomescreenState extends State<Homescreen> {
                         "فهرست مجالس",
                         style: GoogleFonts.almarai(
                           fontSize: 21,
-                          color: Colors.blue[200],
+                          color: Color.fromARGB(255, 69, 221, 255),
                           fontWeight: FontWeight.bold,
                         ),
                       ),
@@ -161,31 +161,28 @@ class _HomescreenState extends State<Homescreen> {
                     //   );
                     // }
                     LongBox(
-                      imagePath: 'assets/images/sawana.png',
+                      imagePath: 'assets/images/sawana-white.png',
                       mainText: "سوانح حیات",
                       subText1: "از رشحاِت قلم:",
-                      subText2: "حضرت سّید محمد ظفر قادری",
-                      subText3: "قادری رحمة اهلل عليه",
+                      subText2: " حضرت سّید محمد ظفر قادری قادری رحمة اهلل عليه",
                       backgroundColor: Color(0xFF00BEAE),
                     ),
                     SizedBox(height: 10),
                     LongBox(
-                      imagePath: 'assets/images/sawana.png',
+                      imagePath: 'assets/images/qalbesaleem.png',
                       mainText: 'قلب سلیم',
                       subText1: 'از رشحاِت قلم',
-                      subText2: 'سّید محمد فراز شاہ مشہدی ',
-                      subText3: 'قادری عفی عنہ',
+                      subText2: 'سّید محمد فراز شاہ مشہدی قادری عفی عنہ',
                       backgroundColor: Color(0xFF1373BF),
                     ),
                     SizedBox(height: 10),
                     LongBox(
-                        imagePath: 'assets/images/sawana.png',
+                        imagePath: 'assets/images/aqwal.png',
                         mainText: 'اقوال و ارشاداِت عالیہ',
                         subText1:
                             'امام االولیاء حضرت پیر سّید محّمد عبد اهلل شاہ',
-                        subText2: 'مشہدی قادری',
-                        subText3: 'رحمة اهلل تعالى عليه',
-                        backgroundColor: Color(0xFF2B3491)),
+                        subText2: ' مشہدی قادری رحمة اهلل تعالى عليه  ',
+                                         backgroundColor: Color(0xFF2B3491)),
                   ],
                 ),
               ),
@@ -253,25 +250,26 @@ class _HomescreenState extends State<Homescreen> {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Container(
-                          height: 90,
+                          height: 75,
                           width: MediaQuery.of(context).size.width *
                               0.46, // Set the desired width
 
                           alignment: Alignment.center,
                           decoration: BoxDecoration(
                               borderRadius:
-                                  BorderRadiusDirectional.circular(20),
-                              color: const Color.fromARGB(255, 34, 115, 255)),
+                                  BorderRadiusDirectional.circular(15),
+                              color:  Color(0xFF2B3491)),
                           child: Text(
-                            "شجرٔہ قادریہ",
+                          
+                          "شجرٔہ قادریہ نسبیہ",
                             style: GoogleFonts.almarai(
-                                fontSize: 20,
+                                fontSize: 15,
                                 fontWeight: FontWeight.bold,
                                 color: Colors.white),
                           ),
                         ),
                         Container(
-                          height: 90,
+                          height: 75,
                           width: MediaQuery.of(context).size.width *
                               0.46, // Set the desired width
 
@@ -279,11 +277,12 @@ class _HomescreenState extends State<Homescreen> {
                           decoration: BoxDecoration(
                               borderRadius:
                                   BorderRadiusDirectional.circular(20),
-                              color: const Color.fromARGB(255, 34, 115, 255)),
+                              color:  Color(0xFF2B3491)),
                           child: Text(
-                            "شجرٔہ قادریہ",
+                            textDirection: TextDirection.rtl,
+                            "شجرٔہ قادریہ حسبیہ",
                             style: GoogleFonts.almarai(
-                                fontSize: 20,
+                                fontSize: 15,
                                 fontWeight: FontWeight.bold,
                                 color: Colors.white),
                           ),
@@ -295,7 +294,7 @@ class _HomescreenState extends State<Homescreen> {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Container(
-                          height: 90,
+                          height: 75,
                           width: MediaQuery.of(context).size.width *
                               0.46, // Set the desired width
 
@@ -307,16 +306,31 @@ class _HomescreenState extends State<Homescreen> {
                               color: Colors.white,
                             ),
                           ),
-                          child: Text(
-                            "شجرٔہ قادریہ",
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                               Text(
+                          
+                          "شجرٔہ قادریہ نسبیہ",
                             style: GoogleFonts.almarai(
-                                fontSize: 20,
+                                fontSize: 15,
                                 fontWeight: FontWeight.bold,
                                 color: Colors.white),
+                          ),
+                              Text(
+                                                            textDirection: TextDirection.rtl,
+                              
+                                "منظوم مع تضمین",
+                                style: GoogleFonts.almarai(
+                                    fontSize: 15,
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.white),
+                              ),
+                            ],
                           ),
                         ),
                         Container(
-                          height: 90,
+                          height: 75,
                           width: MediaQuery.of(context).size.width *
                               0.46, // Set the desired width
 
@@ -328,12 +342,26 @@ class _HomescreenState extends State<Homescreen> {
                               color: Colors.white,
                             ),
                           ),
-                          child: Text(
-                            "شجرٔہ قادریہ",
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Text(
+                            textDirection: TextDirection.rtl,
+                            "شجرٔہ قادریہ حسبیہ",
                             style: GoogleFonts.almarai(
-                                fontSize: 20,
+                                fontSize: 15,
                                 fontWeight: FontWeight.bold,
                                 color: Colors.white),
+                          ),
+                           Text(
+                            textDirection: TextDirection.rtl,
+                          "منظوم مع تضمین",
+                            style: GoogleFonts.almarai(
+                                fontSize: 15,
+                                fontWeight: FontWeight.bold,
+                                color: Colors.white),
+                          ),
+                            ],
                           ),
                         )
                       ],
@@ -345,11 +373,11 @@ class _HomescreenState extends State<Homescreen> {
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 10.0),
                 child: LongBox(
-                  imagePath: 'assets/images/sawana.png',
+                  imagePath: 'assets/images/sawana-white.png',
                   mainText: 'الفراق',
-                  subText1: ':از رشحاِت قلم',
-                  subText2: 'حضرت سّید محمد ظفر مشہدی قادری',
-                  subText3: 'رحمة اهلل عليه',
+                  subText1: 'از رشحاِت قلم',
+                  subText2: 'حضرت سّید محمد ظفر مشہدی قادری رحمة اهلل عليه ',
+                 
                   backgroundColor: Color.fromARGB(255, 26, 32, 99),
                 ),
               ),
@@ -371,7 +399,7 @@ class _HomescreenState extends State<Homescreen> {
                       child: Text(
                         "منقبت",
                         style: GoogleFonts.almarai(
-                            fontSize: 17,
+                            fontSize: 15,
                             fontWeight: FontWeight.bold,
                             color: Colors.white),
                       ),
@@ -388,7 +416,7 @@ class _HomescreenState extends State<Homescreen> {
                       child: Text(
                         "قطعہ تاریخ وصال",
                         style: GoogleFonts.almarai(
-                            fontSize: 17,
+                            fontSize: 15,
                             fontWeight: FontWeight.bold,
                             color: Colors.white),
                       ),
@@ -409,7 +437,7 @@ class _HomescreenState extends State<Homescreen> {
                 child: Text(
                   "حواشی و حوالہ جات",
                   style: GoogleFonts.almarai(
-                      fontSize: 17,
+                      fontSize: 15,
                       fontWeight: FontWeight.bold,
                       color: Colors.white),
                 ),
@@ -447,7 +475,7 @@ class _HomescreenState extends State<Homescreen> {
                       textDirection: TextDirection.rtl,
                       "جملہ حقوق بحِق ناشر محفوظ ہیں",
                       style: GoogleFonts.almarai(
-                          fontSize: 16,
+                          fontSize: 14,
                           color: Colors.white,
                           fontWeight: FontWeight.bold),
                     ),
@@ -455,7 +483,7 @@ class _HomescreenState extends State<Homescreen> {
                       textDirection: TextDirection.rtl,
                       "ادارہ تحقیقاِت نواز",
                       style: GoogleFonts.almarai(
-                          fontSize: 16,
+                          fontSize: 14,
                           color: Colors.white,
                           fontWeight: FontWeight.bold),
                     ),
@@ -467,7 +495,7 @@ class _HomescreenState extends State<Homescreen> {
                       "مکتبہ حزب الرح",
                       style: GoogleFonts.almarai(
                           fontSize: 14,
-                          color: Colors.blueAccent,
+                          color: Color.fromARGB(255, 69, 221, 255),
                           fontWeight: FontWeight.bold),
                     ),
                     Text(
@@ -475,7 +503,7 @@ class _HomescreenState extends State<Homescreen> {
                       "آستانہ عالیہ قادریہ",
                       style: GoogleFonts.almarai(
                           fontSize: 14,
-                          color: Colors.blueAccent,
+                          color: Color.fromARGB(255, 69, 221, 255),
                           fontWeight: FontWeight.bold),
                     ),
                     Text(
@@ -483,7 +511,7 @@ class _HomescreenState extends State<Homescreen> {
                       "حضرت پیر سید محمد عبداهلل شاہ مشہدی قادری",
                       style: GoogleFonts.almarai(
                           fontSize: 14,
-                          color: Colors.blueAccent,
+                          color: Color.fromARGB(255, 69, 221, 255),
                           fontWeight: FontWeight.bold),
                     ),
                     Text(
@@ -491,7 +519,7 @@ class _HomescreenState extends State<Homescreen> {
                       "رحمة اهلل تعالى عليه",
                       style: GoogleFonts.almarai(
                           fontSize: 14,
-                          color: Colors.blueAccent,
+                          color: Color.fromARGB(255, 69, 221, 255),
                           fontWeight: FontWeight.bold),
                     ),
                     SizedBox(
@@ -501,7 +529,7 @@ class _HomescreenState extends State<Homescreen> {
                       textDirection: TextDirection.rtl,
                       "موضع قادر بخش شریف، تحصیل کمالیہ",
                       style: GoogleFonts.almarai(
-                          fontSize: 16,
+                          fontSize: 14,
                           color: Colors.white,
                           fontWeight: FontWeight.bold),
                     ),
@@ -509,7 +537,7 @@ class _HomescreenState extends State<Homescreen> {
                       textDirection: TextDirection.rtl,
                       "ضلع ٹوبہ ٹیک سنگھ، پاکستان",
                       style: GoogleFonts.almarai(
-                          fontSize: 16,
+                          fontSize: 14,
                           color: Colors.white,
                           fontWeight: FontWeight.bold),
                     ),
