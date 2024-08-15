@@ -5,7 +5,8 @@ import 'package:lottie/lottie.dart';
 
 class TextScreen extends StatefulWidget {
   String image;
-  TextScreen({super.key, required this.image});
+  String name;
+  TextScreen({super.key, required this.image, required this.name});
 
   @override
   State<TextScreen> createState() => _TextScreenState();

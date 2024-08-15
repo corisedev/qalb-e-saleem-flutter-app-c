@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:qalb/screens/SplashScreen.dart';
+import 'package:qalb/screens/hawashi_wa_hawalajat.dart';
 
 void main() {
   runApp(const MyApp());
@@ -17,7 +18,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: Splashscreen(),
+      home: hawashiwahawalajatScreen(),
     );
   }
 }

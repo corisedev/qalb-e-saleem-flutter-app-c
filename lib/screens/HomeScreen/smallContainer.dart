@@ -6,18 +6,21 @@ class SmallContainer extends StatelessWidget {
   final Color backgroundColor;
   final String imagePath;
   final String text;
+  final String name;
 
   SmallContainer({
     required this.backgroundColor,
     required this.imagePath,
     required this.text,
+    required this.name,
+    
   });
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        Navigator.push(context, MaterialPageRoute(builder: (context) => SoundPlayer(image: imagePath,),));
+        Navigator.push(context, MaterialPageRoute(builder: (context) => SoundPlayer(image: imagePath,name: name),));
       },
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,

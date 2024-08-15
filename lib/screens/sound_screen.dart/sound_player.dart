@@ -4,7 +4,8 @@ import 'package:qalb/screens/sound_screen.dart/text_screen.dart';
 
 class SoundPlayer extends StatefulWidget {
   String image;
-   SoundPlayer({super.key, required this.image});
+  String name;
+   SoundPlayer({super.key, required this.image, required this.name});
 
   @override
   State<SoundPlayer> createState() => _SoundPlayerState();
@@ -112,7 +113,7 @@ Row(
   children: [
     GestureDetector(
       onTap: (){
-                Navigator.push(context, MaterialPageRoute(builder: (context) => TextScreen(image: widget.image),));
+                Navigator.push(context, MaterialPageRoute(builder: (context) => TextScreen(image: widget.image, name: widget.name,),));
 
       },
       child: Image.asset("assets/images/read.png", width: 35,)),

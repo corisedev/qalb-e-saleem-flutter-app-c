@@ -74,21 +74,28 @@ class _HomescreenState extends State<Homescreen> {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     SmallContainer(
+                      name: "manqabat",
                       backgroundColor: Colors.transparent,
                       imagePath: 'assets/images/manqabat.png',
                       text: 'منقبت',
                     ),
                     SmallContainer(
+                                            name: "manqabat",
+
                       backgroundColor: const Color.fromARGB(255, 20, 5, 128),
                       imagePath: 'assets/images/tashakur.png',
                       text: 'اظہار تشکر',
                     ),
                     SmallContainer(
+                                            name: "manqabat",
+
                       backgroundColor: Colors.purple,
                       imagePath: 'assets/images/muqadma.png',
                       text: 'مقّدمۃ الکتاب',
                     ),
                     SmallContainer(
+                                            name: "manqabat",
+
                       backgroundColor: Colors.green,
                       imagePath: 'assets/images/peshLafz.png',
                       text: 'پیش لفظ',
