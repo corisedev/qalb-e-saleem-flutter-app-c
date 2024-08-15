@@ -20,7 +20,8 @@ class _ShajrEQadriaScreenState extends State<ShajrEQadriaScreen> {
   void initState() {
     super.initState();
     // Load data in initState
-    Provider.of<DataProvider>(context, listen: false).getShajraImageUrl("shajra_hasbiya/");
+    Provider.of<DataProvider>(context, listen: false)
+        .getShajraImageUrl("shajra_hasbiya/");
   }
 
   @override
@@ -68,7 +69,8 @@ class _ShajrEQadriaScreenState extends State<ShajrEQadriaScreen> {
                               textAlign: TextAlign.right,
                             ),
                             SizedBox(width: 10),
-                            Image.asset("assets/images/back-arrow-white.png", width: 25),
+                            Image.asset("assets/images/back-arrow-white.png",
+                                width: 25),
                           ],
                         ),
                       ),
@@ -100,58 +102,66 @@ class _ShajrEQadriaScreenState extends State<ShajrEQadriaScreen> {
                           textAlign: TextAlign.right,
                         ),
                       ),
+                      Consumer<DataProvider>(
+                        builder: (context, itemProvider, child) {
+                          if (itemProvider.shajraImageUrls.isEmpty) {
+                            return SizedBox(
+                              width: double.infinity,
+                              height: 500,
+                              child: Center(
+                                child: CircularProgressIndicator(),
+                              ),
+                            );
+                          } else {
+                            return ListView.builder(
+                              shrinkWrap: true,
+                              itemCount: TextData.shajraHasbiya.length,
+                              physics: NeverScrollableScrollPhysics(),
+                              itemBuilder: (context, index) {
+                                bool present = false;
+                                log(present.toString());
+                                return Container(
+                                  margin: EdgeInsets.symmetric(vertical: 8.0),
+                                  child: TimelineStep(
+                                    stepNumber: index + 1,
+                                    imagePath: index + 1 == 1
+                                        ? itemProvider.shajraImageUrls[0]
+                                        : index + 1 == 2
+                                            ? itemProvider.shajraImageUrls[1]
+                                            : index + 1 == 3
+                                                ? itemProvider
+                                                    .shajraImageUrls[2]
+                                                : index + 1 == 17
+                                                    ? itemProvider
+                                                        .shajraImageUrls[3]
+                                                    : index + 1 == 37
+                                                        ? itemProvider
+                                                            .shajraImageUrls[4]
+                                                        : index + 1 == 43
+                                                            ? itemProvider
+                                                                    .shajraImageUrls[
+                                                                6]
+                                                            : index == 42
+                                                                ? itemProvider
+                                                                    .shajraImageUrls[5]
+                                                                : "",
+                                    description: TextData.shajraHasbiya[index],
+                                  ),
+                                );
+                              },
+                            );
+                          }
+                        },
+                      ),
                     ],
                   ),
                 ),
-                // Timeline steps
-                Positioned(
-                  top: screenHeight * 0.52,
-                  left: 0,
-                  right: 0,
-                  child: Consumer<DataProvider>(
-  builder: (context, itemProvider, child) {
-    if (itemProvider.shajraImageUrls.isEmpty) {
-      return SizedBox(
-        width: double.infinity,
-        height: 500,
-        child: Center(
-          child: CircularProgressIndicator(),
-        ),
-      );
-    } else {
-      // List of valid indices
-
-      return Container(
-        height: screenHeight * 0.3, // Adjust the height as needed
-        child: ListView.builder(
-          itemCount: TextData.shajraHasbiya.length,
-          itemBuilder: (context, index) {
-            bool present = false;
-            
-            log(present.toString());
-            return Container(
-              margin: EdgeInsets.symmetric(vertical: 8.0),
-              child: TimelineStep(
-                stepNumber: index+1,
-                imagePath: index+1 == 1 ? itemProvider.shajraImageUrls[0] : index+1 == 2 ?  itemProvider.shajraImageUrls[1] : index+1 == 3 ?  itemProvider.shajraImageUrls[2] : index+1 == 17 ?  itemProvider.shajraImageUrls[3] : index+1 == 37 ?  itemProvider.shajraImageUrls[4] :  index+1 == 43 ?  itemProvider.shajraImageUrls[6] : index == 42 ?  itemProvider.shajraImageUrls[5] : "",
-                description: TextData.shajraHasbiya[index],
-              ),
-            );
-          },
-        ),
-      );
-    }
-  },
-),
-
-                ),
               ],
             ),
+            // Timeline steps
           ],
         ),
       ),
     );
   }
-
-
 }

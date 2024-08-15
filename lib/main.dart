@@ -10,18 +10,17 @@ import 'package:qalb/screens/Shajr_e_Qadria/Shajr_e_Qadria.dart';
 import 'package:qalb/screens/majlis_screen.dart';
 import 'package:qalb/screens/test.dart';
 import 'package:qalb/utils/firebase_methods.dart';
+
 //     3B8ABF27-63E1-4443-8862-BD2DF60F5F1F debug token
-void main()async {
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
 
-final  result = await FirebaseData.storageRef.listAll();
+  final result = await FirebaseData.storageRef.listAll();
 
   runApp(
     MultiProvider(
-      providers: [
-        ChangeNotifierProvider(create: (context) => DataProvider())
-      ],
+      providers: [ChangeNotifierProvider(create: (context) => DataProvider())],
       child: MyApp(),
     ),
   );
@@ -38,7 +37,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: Majlis(),
+      home: ShajrEQadriaScreen(),
     );
   }
 }
