@@ -69,10 +69,9 @@ class _hawashiwahawalajatScreenState extends State<hawashiwahawalajatScreen> {
                               mainAxisAlignment: MainAxisAlignment.start,
                               children: [
                                 Container(
-                                  child: SvgPicture.asset(
-                                    color: Colors.white,
-                                    "assets/images/majlis/forward-arrow-svgrepo-com.svg",
-                                    width: 22,
+                                  child: Image.asset(
+                                    "assets/images/back-arrow-white.png",
+                                    width: 26,
                                   ),
                                 ),
                               ]),
@@ -108,7 +107,7 @@ class _hawashiwahawalajatScreenState extends State<hawashiwahawalajatScreen> {
               child: SingleChildScrollView(
                 child: Container(
                   width: double.infinity,
-                  height: MediaQuery.of(context).size.height*0.6,
+                  height: MediaQuery.of(context).size.height * 0.6,
                   padding: EdgeInsets.symmetric(vertical: 55),
                   margin: EdgeInsets.symmetric(horizontal: 40),
                   decoration: BoxDecoration(
@@ -125,8 +124,8 @@ class _hawashiwahawalajatScreenState extends State<hawashiwahawalajatScreen> {
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Image.asset("assets/images/hawalajat1.png",width:150),
-                      Image.asset("assets/images/hawalajat2.png", width:160),
+                      Image.asset("assets/images/hawalajat1.png", width: 150),
+                      Image.asset("assets/images/hawalajat2.png", width: 160),
                     ],
                   ),
                 ),
