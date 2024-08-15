@@ -4,13 +4,13 @@ import 'package:google_fonts/google_fonts.dart';
 class TimelineStepNoImage extends StatelessWidget {
   final int stepNumber;
   final String description;
-  final Color containerColor; // Required container color
+  final Color containerColor;
 
   const TimelineStepNoImage({
     Key? key,
     required this.stepNumber,
     required this.description,
-    required this.containerColor, // Color is required
+    required this.containerColor,
   }) : super(key: key);
 
   @override
@@ -28,9 +28,9 @@ class TimelineStepNoImage extends StatelessWidget {
             ),
           ),
         ),
-        if (stepNumber != 6) // Add last step logic here if needed
+        if (stepNumber != 27) // Last wala idr dalna h
           Container(
-            height: 50,
+            height: 20,
             width: 2,
             color: Colors.grey.shade300,
           ),
@@ -49,11 +49,11 @@ class TimelineStepNoImage extends StatelessWidget {
           child: Column(
             children: [
               ClipRRect(
-                borderRadius: BorderRadius.circular(20),
+                borderRadius: BorderRadius.circular(10),
                 child: Container(
                   width: double.infinity,
-                  height: 150,
-                  color: containerColor, // Fill with the provided color
+                  // height: 150,
+                  color: containerColor,
                   child: Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: Center(
@@ -73,9 +73,9 @@ class TimelineStepNoImage extends StatelessWidget {
             ],
           ),
         ),
-        if (stepNumber != 6) // Add last step logic here if needed
+        if (stepNumber != 27) // Last wala idr dalna h
           Container(
-            height: 50,
+            height: 20,
             width: 2,
             color: Colors.grey.shade300,
           ),

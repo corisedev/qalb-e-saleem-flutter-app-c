@@ -164,12 +164,145 @@ class _ShajrEQadriaScreenState extends State<ShajrEQadriaScreen> {
                           'خاتم النبین حضرت سیدنا محمد رسول اللہ صلی اللہ تعالیٰ علیہ والہ وسلم',
                       containerColor: Colors.green,
                     ),
-                    TimelineStep(
+                    TimelineStepNoImage(
                       stepNumber: 6,
+                      description:
+                          'خاتم النبین حضرت سیدنا محمد رسول اللہ صلی اللہ تعالیٰ علیہ والہ وسلم',
+                      containerColor: Colors.green,
+                    ),
+                    TimelineStepNoImage(
+                      stepNumber: 7,
+                      description:
+                          'خاتم النبین حضرت سیدنا محمد رسول اللہ صلی اللہ تعالیٰ علیہ والہ وسلم',
+                      containerColor: Colors.green,
+                    ),
+                    TimelineStepNoImage(
+                      stepNumber: 8,
+                      description:
+                          'خاتم النبین حضرت سیدنا محمد رسول اللہ صلی اللہ تعالیٰ علیہ والہ وسلم',
+                      containerColor: Colors.green,
+                    ),
+                    TimelineStepNoImage(
+                      stepNumber: 9,
+                      description:
+                          'خاتم النبین حضرت سیدنا محمد رسول اللہ صلی اللہ تعالیٰ علیہ والہ وسلم',
+                      containerColor: Colors.green,
+                    ),
+                    TimelineStepNoImage(
+                      stepNumber: 10,
+                      description:
+                          'خاتم النبین حضرت سیدنا محمد رسول اللہ صلی اللہ تعالیٰ علیہ والہ وسلم',
+                      containerColor: Colors.green,
+                    ),
+                    TimelineStepNoImage(
+                      stepNumber: 10,
+                      description:
+                          'خاتم النبین حضرت سیدنا محمد رسول اللہ صلی اللہ تعالیٰ علیہ والہ وسلم',
+                      containerColor: Colors.green,
+                    ),
+                    TimelineStepNoImage(
+                      stepNumber: 11,
+                      description:
+                          'خاتم النبین حضرت سیدنا محمد رسول اللہ صلی اللہ تعالیٰ علیہ والہ وسلم',
+                      containerColor: Colors.green,
+                    ),
+                    TimelineStepNoImage(
+                      stepNumber: 12,
+                      description:
+                          'خاتم النبین حضرت سیدنا محمد رسول اللہ صلی اللہ تعالیٰ علیہ والہ وسلم',
+                      containerColor: Colors.green,
+                    ),
+                    TimelineStepNoImage(
+                      stepNumber: 13,
+                      description:
+                          'خاتم النبین حضرت سیدنا محمد رسول اللہ صلی اللہ تعالیٰ علیہ والہ وسلم',
+                      containerColor: Colors.green,
+                    ),
+                    TimelineStepNoImage(
+                      stepNumber: 14,
+                      description:
+                          'خاتم النبین حضرت سیدنا محمد رسول اللہ صلی اللہ تعالیٰ علیہ والہ وسلم',
+                      containerColor: Colors.green,
+                    ),
+                    TimelineStepNoImage(
+                      stepNumber: 15,
+                      description:
+                          'خاتم النبین حضرت سیدنا محمد رسول اللہ صلی اللہ تعالیٰ علیہ والہ وسلم',
+                      containerColor: Colors.green,
+                    ),
+                    TimelineStepNoImage(
+                      stepNumber: 16,
+                      description:
+                          'خاتم النبین حضرت سیدنا محمد رسول اللہ صلی اللہ تعالیٰ علیہ والہ وسلم',
+                      containerColor: Colors.green,
+                    ),
+                    TimelineStepNoImage(
+                      stepNumber: 17,
+                      description:
+                          'خاتم النبین حضرت سیدنا محمد رسول اللہ صلی اللہ تعالیٰ علیہ والہ وسلم',
+                      containerColor: Colors.green,
+                    ),
+                    TimelineStepNoImage(
+                      stepNumber: 18,
+                      description:
+                          'خاتم النبین حضرت سیدنا محمد رسول اللہ صلی اللہ تعالیٰ علیہ والہ وسلم',
+                      containerColor: Colors.green,
+                    ),
+                    TimelineStepNoImage(
+                      stepNumber: 19,
+                      description:
+                          'خاتم النبین حضرت سیدنا محمد رسول اللہ صلی اللہ تعالیٰ علیہ والہ وسلم',
+                      containerColor: Colors.green,
+                    ),
+                    TimelineStepNoImage(
+                      stepNumber: 20,
+                      description:
+                          'خاتم النبین حضرت سیدنا محمد رسول اللہ صلی اللہ تعالیٰ علیہ والہ وسلم',
+                      containerColor: Colors.green,
+                    ),
+                    TimelineStepNoImage(
+                      stepNumber: 21,
+                      description:
+                          'خاتم النبین حضرت سیدنا محمد رسول اللہ صلی اللہ تعالیٰ علیہ والہ وسلم',
+                      containerColor: Colors.green,
+                    ),
+                    TimelineStepNoImage(
+                      stepNumber: 22,
+                      description:
+                          'خاتم النبین حضرت سیدنا محمد رسول اللہ صلی اللہ تعالیٰ علیہ والہ وسلم',
+                      containerColor: Colors.green,
+                    ),
+                    TimelineStepNoImage(
+                      stepNumber: 23,
+                      description:
+                          'خاتم النبین حضرت سیدنا محمد رسول اللہ صلی اللہ تعالیٰ علیہ والہ وسلم',
+                      containerColor: Colors.green,
+                    ),
+                    TimelineStepNoImage(
+                      stepNumber: 24,
+                      description:
+                          'خاتم النبین حضرت سیدنا محمد رسول اللہ صلی اللہ تعالیٰ علیہ والہ وسلم',
+                      containerColor: Colors.green,
+                    ),
+                    TimelineStepNoImage(
+                      stepNumber: 25,
+                      description:
+                          'خاتم النبین حضرت سیدنا محمد رسول اللہ صلی اللہ تعالیٰ علیہ والہ وسلم',
+                      containerColor: Colors.green,
+                    ),
+                    TimelineStepNoImage(
+                      stepNumber: 26,
+                      description:
+                          'خاتم النبین حضرت سیدنا محمد رسول اللہ صلی اللہ تعالیٰ علیہ والہ وسلم',
+                      containerColor: Colors.green,
+                    ),
+                    TimelineStep(
+                      stepNumber: 27,
                       imagePath: 'assets/images/darbar-shareef.png',
                       description:
                           'خاتم النبین حضرت سیدنا محمد رسول اللہ صلی اللہ تعالیٰ علیہ والہ وسلم',
                     ),
+                    SizedBox(height: 40),
                   ],
                 ),
               ),
