@@ -1,16 +1,18 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class TimelineStep extends StatelessWidget {
   final int stepNumber;
-  final String imagePath;
+  final String? imagePath;
   final String description;
 
   const TimelineStep({
     Key? key,
     required this.stepNumber,
-    required this.imagePath,
     required this.description,
+    required this.imagePath,
   }) : super(key: key);
 
   @override
@@ -21,55 +23,42 @@ class TimelineStep extends StatelessWidget {
         children: [
           CircleAvatar(
             radius: 20,
-            backgroundColor: Colors.grey.shade300,
+            backgroundColor: stepNumber == 1 ? Colors.white : Colors.grey.shade500,
             child: Text(
               stepNumber.toString(),
-              style: TextStyle(color: Colors.black),
+              style: TextStyle(color: stepNumber == 1  ? Colors.black : Colors.white),
             ),
           ),
           if (stepNumber != 28) // idr last +1 step dalna h
             Container(
               height: 20,
               width: 2,
-              color: Colors.grey.shade300,
+              color: stepNumber == 1 ? Colors.white : Colors.grey.shade500
             ),
-          SizedBox(height: 10),
           Container(
-            padding: EdgeInsets.all(15),
-            decoration: BoxDecoration(boxShadow: [
-              BoxShadow(
-                color: Colors.grey.withOpacity(0.5),
-                spreadRadius: 5,
-                blurRadius: 7,
-                offset: Offset(0, 3),
-              ),
-            ], color: Colors.white, borderRadius: BorderRadius.circular(20)),
+            width: 100,
+            height: imagePath == "" ? 100 : 180,
+            padding: EdgeInsets.only(top: imagePath == ""? 0 : 8, right: 8, left: 8, bottom: imagePath == "" ? 0:15),
+            decoration: BoxDecoration(
+              border: imagePath == "" ? Border.all(color: Colors.white) : Border.all(color: Colors.grey.shade200,width:2),
+               color: imagePath =="" ? getRandomColor().withOpacity(0.5) : Colors.white, borderRadius: BorderRadius.circular(10)),
             child: Column(
+              mainAxisAlignment:imagePath == ""? MainAxisAlignment.center :  MainAxisAlignment.spaceBetween,
               children: [
-                ClipRRect(
-                  borderRadius: BorderRadius.circular(20),
-                  child: Container(
-                    width: double.infinity,
-                    decoration:
-                        BoxDecoration(borderRadius: BorderRadius.circular(20)),
-                    child: Image.asset(
-                      height: 150,
-                      imagePath,
-                      fit: BoxFit.fill,
-                    ),
-                  ),
-                ),
-                SizedBox(height: 10),
+                ClipRRect(borderRadius: BorderRadiusDirectional.circular(10),
+                  
+                  child: imagePath == "" ? Container() : Image.network(imagePath!,width:100, height:100, fit: BoxFit.cover)),
+                // SizedBox(height: 10),
                 Text(
                   description,
                   style: GoogleFonts.almarai(
-                    color: Colors.black,
-                    fontSize: 14,
-                    fontWeight: FontWeight.w500,
+                    color: imagePath == "" ? Colors.white : Colors.black,
+                    fontSize: 11,
+                    fontWeight: FontWeight.w600,
                   ),
                   textAlign: TextAlign.center,
                 ),
-                SizedBox(height: 30),
+                // SizedBox(height: 30),
               ],
             ),
           ),
@@ -77,10 +66,20 @@ class TimelineStep extends StatelessWidget {
             Container(
               height: 20,
               width: 2,
-              color: Colors.grey.shade300,
+              color: Colors.grey.shade500,
             ),
         ],
       ),
     );
   }
+
+  Color getRandomColor() {
+  Random random = Random();
+  // Generating random RGB values
+  int red = random.nextInt(200);   // 0 to 255
+  int green = random.nextInt(150); // 0 to 255
+  int blue = random.nextInt(24);  // 0 to 255
+
+  return Color.fromRGBO(red, green, blue, 1.0); // Opacity set to 1.0 (fully opaque)
+}
 }

@@ -1,10 +1,30 @@
-import 'package:flutter/material.dart';
-import 'package:qalb/screens/Shajr_e_Qadria/Shajr_e_Qadria.dart';
-import 'package:qalb/screens/SplashScreen.dart';
-import 'package:qalb/screens/hawashi_wa_hawalajat.dart';
+import 'dart:developer';
 
-void main() {
-  runApp(const MyApp());
+import 'package:firebase_app_check/firebase_app_check.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:qalb/firebase_options.dart';
+import 'package:qalb/providers/DataProvider.dart';
+import 'package:qalb/screens/Shajr_e_Qadria/Shajr_e_Qadria.dart';
+import 'package:qalb/screens/majlis_screen.dart';
+import 'package:qalb/screens/test.dart';
+import 'package:qalb/utils/firebase_methods.dart';
+//     3B8ABF27-63E1-4443-8862-BD2DF60F5F1F debug token
+void main()async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
+
+final  result = await FirebaseData.storageRef.listAll();
+
+  runApp(
+    MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (context) => DataProvider())
+      ],
+      child: MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {
@@ -18,7 +38,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: ShajrEQadriaScreen(),
+      home: Majlis(),
     );
   }
 }
