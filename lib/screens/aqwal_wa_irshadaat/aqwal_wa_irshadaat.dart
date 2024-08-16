@@ -1,12 +1,7 @@
-import 'dart:typed_data';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
-import 'package:qalb/data/data.dart';
-import 'package:qalb/providers/DataProvider.dart';
-import 'package:qalb/screens/majlis_sound/majlis_sound.dart';
+import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 class AqwalWaIrshadaatScreen extends StatefulWidget {
   const AqwalWaIrshadaatScreen({super.key});
@@ -16,6 +11,14 @@ class AqwalWaIrshadaatScreen extends StatefulWidget {
 }
 
 class _AqwalWaIrshadaatScreenState extends State<AqwalWaIrshadaatScreen> {
+  final PageController _pageController = PageController(viewportFraction: 0.8);
+
+  @override
+  void dispose() {
+    _pageController.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -86,116 +89,64 @@ class _AqwalWaIrshadaatScreenState extends State<AqwalWaIrshadaatScreen> {
             left: 0,
             right: 0,
             child: Container(
-                padding: EdgeInsets.symmetric(vertical: 20),
-                height: MediaQuery.of(context).size.height * 0.8,
-                decoration: const BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.only(
-                    topLeft: Radius.circular(40),
-                    topRight: Radius.circular(40),
-                  ),
+              padding: EdgeInsets.symmetric(vertical: 20),
+              height: MediaQuery.of(context).size.height * 0.8,
+              decoration: const BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.only(
+                  topLeft: Radius.circular(40),
+                  topRight: Radius.circular(40),
                 ),
-                child: Column(
-                  children: [
-                    SizedBox(height: 30),
-                    SingleChildScrollView(
-                      scrollDirection: Axis.horizontal,
-                      child: Container(
-                        height: MediaQuery.of(context).size.height * 0.43,
-                        child: Row(
-                          children: [
-                            Container(
-                              padding: EdgeInsets.symmetric(horizontal: 5),
-                              margin: EdgeInsets.symmetric(horizontal: 5),
-                              width: MediaQuery.of(context).size.width * 0.7,
-                              height: MediaQuery.of(context).size.height * 0.4,
-                              decoration: BoxDecoration(
-                                  border: Border.all(
-                                      color: Colors.grey.withOpacity(0.5)),
-                                  image: DecorationImage(
-                                      image: AssetImage(
-                                          'assets/images/aqwal-white.png'),
-                                      fit: BoxFit.cover),
-                                  color: Colors.white,
-                                  boxShadow: [
-                                    BoxShadow(
-                                      color: Colors.grey.withOpacity(0.5),
-                                      spreadRadius: 0,
-                                      blurRadius: 7,
-                                      offset: Offset(0, 7),
-                                    ),
-                                  ],
-                                  borderRadius: BorderRadius.circular(20)),
-                            ),
-                            Container(
-                              padding: EdgeInsets.symmetric(horizontal: 5),
-                              margin: EdgeInsets.symmetric(horizontal: 5),
-                              width: MediaQuery.of(context).size.width * 0.7,
-                              height: MediaQuery.of(context).size.height * 0.4,
-                              decoration: BoxDecoration(
-                                  border: Border.all(
-                                      color: Colors.grey.withOpacity(0.5)),
-                                  image: DecorationImage(
-                                      image: AssetImage(
-                                          'assets/images/aqwal-white.png'),
-                                      fit: BoxFit.cover),
-                                  color: Colors.white,
-                                  boxShadow: [
-                                    BoxShadow(
-                                      color: Colors.grey.withOpacity(0.5),
-                                      spreadRadius: 0,
-                                      blurRadius: 7,
-                                      offset: Offset(0, 7),
-                                    ),
-                                  ],
-                                  borderRadius: BorderRadius.circular(20)),
-                            ),
-                            Container(
-                              padding: EdgeInsets.symmetric(horizontal: 5),
-                              margin: EdgeInsets.symmetric(horizontal: 5),
-                              width: MediaQuery.of(context).size.width * 0.7,
-                              height: MediaQuery.of(context).size.height * 0.4,
-                              decoration: BoxDecoration(
-                                  border: Border.all(
-                                      color: Colors.grey.withOpacity(0.5)),
-                                  image: DecorationImage(
-                                      image: AssetImage(
-                                          'assets/images/aqwal-white.png'),
-                                      fit: BoxFit.cover),
-                                  color: Colors.white,
-                                  boxShadow: [
-                                    BoxShadow(
-                                      color: Colors.grey.withOpacity(0.5),
-                                      spreadRadius: 0,
-                                      blurRadius: 7,
-                                      offset: Offset(0, 7),
-                                    ),
-                                  ],
-                                  borderRadius: BorderRadius.circular(20)),
-                            ),
-                          ],
-                        ),
-                      ),
+              ),
+              child: Column(
+                children: [
+                  SizedBox(height: 30),
+                  Container(
+                    height: MediaQuery.of(context).size.height * 0.5,
+                    child: PageView(
+                      controller: _pageController,
+                      children: [
+                        _buildPage(
+                            'assets/images/Aqwal_E_Irshadaat_Pictures/aq_01-min.png'),
+                        _buildPage(
+                            'assets/images/Aqwal_E_Irshadaat_Pictures/aq_02.png'),
+                        _buildPage(
+                            'assets/images/Aqwal_E_Irshadaat_Pictures/aq_03.png'),
+                        _buildPage(
+                            'assets/images/Aqwal_E_Irshadaat_Pictures/aq_04.png'),
+                        _buildPage(
+                            'assets/images/Aqwal_E_Irshadaat_Pictures/aq_05.png'),
+                      ],
                     ),
-                    SizedBox(
-                      height: 60,
+                  ),
+                  SizedBox(height: 30),
+                  SmoothPageIndicator(
+                    controller: _pageController,
+                    count: 5,
+                    effect: WormEffect(
+                      dotHeight: 8,
+                      dotWidth: 8,
+                      activeDotColor: Colors.blue,
                     ),
-                    Divider(
-                      endIndent: 5,
-                      indent: 5,
-                    ),
-                    SizedBox(
-                      height: 40,
-                    ),
-                    Image.asset(
-                      "assets/images/play.png",
-                      height: 60,
-                    )
-                  ],
-                )),
+                  ),
+                  SizedBox(height: 30),
+                  Image.asset(
+                    "assets/images/play.png",
+                    height: 60,
+                  ),
+                ],
+              ),
+            ),
           ),
         ],
       ),
+    );
+  }
+
+  Widget _buildPage(String imagePath) {
+    return Image.asset(
+      imagePath,
+      fit: BoxFit.contain,
     );
   }
 }
