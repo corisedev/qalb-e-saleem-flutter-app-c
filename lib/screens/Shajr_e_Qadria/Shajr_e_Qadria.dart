@@ -9,7 +9,8 @@ import 'package:qalb/providers/DataProvider.dart';
 import 'package:qalb/screens/Shajr_e_Qadria/TimeLine.dart';
 
 class ShajrEQadriaScreen extends StatefulWidget {
-  const ShajrEQadriaScreen({super.key});
+  String text;
+   ShajrEQadriaScreen({super.key, required this.text});
 
   @override
   State<ShajrEQadriaScreen> createState() => _ShajrEQadriaScreenState();
@@ -19,15 +20,19 @@ class _ShajrEQadriaScreenState extends State<ShajrEQadriaScreen> {
   @override
   void initState() {
     super.initState();
-    // Load data in initState
-    Provider.of<DataProvider>(context, listen: false)
-        .getShajraImageUrl("shajra_hasbiya/");
+    // // Load data in initState
+    // if(widget.text == "nasbiya"){
+    //   Provider.of<DataProvider>(context, listen: false)
+    //     .getShajraImageUrl("shajra_nasbiya/");
+    // }else{
+    //   Provider.of<DataProvider>(context, listen: false)
+    //     .getShajraImageUrl("shajra_hasbiya/");
+    // }
   }
 
   @override
   Widget build(BuildContext context) {
     double screenHeight = MediaQuery.of(context).size.height;
-    double screenWidth = MediaQuery.of(context).size.width;
 
     return Scaffold(
       body: SingleChildScrollView(
@@ -38,7 +43,7 @@ class _ShajrEQadriaScreenState extends State<ShajrEQadriaScreen> {
               clipBehavior: Clip.none,
               children: [
                 Container(
-                  height: screenHeight * 0.72,
+                  height: widget.text == "nasbiya"? screenHeight * 0.72 : screenHeight * 0.52,
                   width: double.infinity,
                   decoration: BoxDecoration(
                     image: DecorationImage(
@@ -60,7 +65,7 @@ class _ShajrEQadriaScreenState extends State<ShajrEQadriaScreen> {
                           mainAxisAlignment: MainAxisAlignment.end,
                           children: [
                             Text(
-                              "شجرٔہ قادریہ نسبیہ",
+                              widget.text == "nasbiya" ? "شجرٔہ قادریہ نسبیہ" : "شجرٔہ قادریہ حسبیہ",
                               style: GoogleFonts.almarai(
                                 color: Colors.white,
                                 fontSize: 20,
@@ -78,7 +83,10 @@ class _ShajrEQadriaScreenState extends State<ShajrEQadriaScreen> {
                       Padding(
                         padding: EdgeInsets.symmetric(horizontal: 50),
                         child: Text(
-                          '''سلطان الاولیاء، امام العارفین، شہباز طریقت، مخزن علوم باطنی، منبع انوار رحمانی، حضرت پیر سید محمد عبد اللہ شاہ مشہدی قادری رحمة اللہ علیہ کی پیدائش 1315ھ بمطابق 1898ء موضع قادر بخش نزد کمالیہ، ضلع ٹوبہ ٹیک سنگھ میں ہوئی۔ آپ رحمة اللہ علیہ کا سلسلہ نسب حضرت سیدنا امام موسیٰ کاظم رضی اللہ عنہ سے ملتا ہے۔ اس وجہ سے آپ کو کاظمی سید کہتے ہیں۔ آپ رحمة اللہ علیہ کے آباء و اجداد طویل عرصہ تک مشہد مقدس میں رہے، اس کے بعد وارد ہند ہوئے، اس لیئے مشہدی سادات مشہور ہیں۔''',
+
+                          widget.text == "nasbiya" ?
+                          '''سلطان الاولیاء، امام العارفین، شہباز طریقت، مخزن علوم باطنی، منبع انوار رحمانی، حضرت پیر سید محمد عبد اللہ شاہ مشہدی قادری رحمة اللہ علیہ کی پیدائش 1315ھ بمطابق 1898ء موضع قادر بخش نزد کمالیہ، ضلع ٹوبہ ٹیک سنگھ میں ہوئی۔ آپ رحمة اللہ علیہ کا سلسلہ نسب حضرت سیدنا امام موسیٰ کاظم رضی اللہ عنہ سے ملتا ہے۔ اس وجہ سے آپ کو کاظمی سید کہتے ہیں۔ آپ رحمة اللہ علیہ کے آباء و اجداد طویل عرصہ تک مشہد مقدس میں رہے، اس کے بعد وارد ہند ہوئے، اس لیئے مشہدی سادات مشہور ہیں۔''' : '''آپ رحمة اهلل عليه کا شجرٔہ حسب اکتالیس )41( واسطوں سے پیارے آقا ومولٰی، محبوب خدا، حضرت سّیدنا احمد مجتبٰی
+: محمد مصطفٰی صلی الله عليه وآله وسلم سے جا ملتا ہے۔ اس کی پوری تفصیل مالحظہ فرمائیے''',
                           style: GoogleFonts.almarai(
                             color: Colors.white,
                             fontSize: 11,
@@ -92,7 +100,8 @@ class _ShajrEQadriaScreenState extends State<ShajrEQadriaScreen> {
                       Padding(
                         padding: EdgeInsets.symmetric(horizontal: 50),
                         child: Text(
-                          'امام الاولیاء حضرت پیر سید محمد عبد اللہ شاہ مشہدی قادری رحمۃ اللہ علیہ کا شجرۂ نسب پینتیس (35) واسطوں سے حضور نبی کریم، رؤف رحیم صلی اللہ علیہ والہ وسلم سے جامعتا ہے۔ اس کی تفصیل حسب ذیل ہے :',
+                          widget.text == "nasbiya"?
+                          'امام الاولیاء حضرت پیر سید محمد عبد اللہ شاہ مشہدی قادری رحمۃ اللہ علیہ کا شجرۂ نسب پینتیس (35) واسطوں سے حضور نبی کریم، رؤف رحیم صلی اللہ علیہ والہ وسلم سے جامعتا ہے۔ اس کی تفصیل حسب ذیل ہے :' : "",
                           textDirection: TextDirection.rtl,
                           style: GoogleFonts.almarai(
                             color: Colors.white,
@@ -104,55 +113,29 @@ class _ShajrEQadriaScreenState extends State<ShajrEQadriaScreen> {
                       ),
                       Consumer<DataProvider>(
                         builder: (context, itemProvider, child) {
-                          if (itemProvider.shajraImageUrls.isEmpty) {
-                            return SizedBox(
-                              width: double.infinity,
-                              height: 500,
-                              child: Center(
-                                child: CircularProgressIndicator(),
-                              ),
-                            );
-                          } else {
+                        
                             return ListView.builder(
                               shrinkWrap: true,
-                              itemCount: TextData.shajraHasbiya.length,
+                              itemCount: widget.text == "nasbiya" ? TextData.shajraNasbia.length :TextData.shajraHasbiya.length,
                               physics: NeverScrollableScrollPhysics(),
                               itemBuilder: (context, index) {
                                 bool present = false;
                                 log(present.toString());
                                 return Container(
-                                  margin: EdgeInsets.symmetric(vertical: 8.0),
+                                  margin: EdgeInsets.symmetric(vertical: 0.0),
                                   child: TimelineStep(
+                                    name: widget.text,
                                     stepNumber: index + 1,
-                                    imagePath: index + 1 == 1
-                                        ? itemProvider.shajraImageUrls[0]
-                                        : index + 1 == 2
-                                            ? itemProvider.shajraImageUrls[1]
-                                            : index + 1 == 3
-                                                ? itemProvider
-                                                    .shajraImageUrls[2]
-                                                : index + 1 == 17
-                                                    ? itemProvider
-                                                        .shajraImageUrls[3]
-                                                    : index + 1 == 37
-                                                        ? itemProvider
-                                                            .shajraImageUrls[4]
-                                                        : index + 1 == 43
-                                                            ? itemProvider
-                                                                    .shajraImageUrls[
-                                                                6]
-                                                            : index == 42
-                                                                ? itemProvider
-                                                                    .shajraImageUrls[5]
-                                                                : "",
-                                    description: TextData.shajraHasbiya[index],
+                                    imagePath: getImageUrl(index, itemProvider),
+                                    description: widget.text == "nasbiya" ?TextData.shajraNasbia[index] :TextData.shajraHasbiya[index],
                                   ),
                                 );
                               },
                             );
                           }
-                        },
+                        
                       ),
+                      SizedBox(height: 200),
                     ],
                   ),
                 ),
@@ -164,4 +147,49 @@ class _ShajrEQadriaScreenState extends State<ShajrEQadriaScreen> {
       ),
     );
   }
+
+
+
+ String? getImageUrl(int index, DataProvider itemProvider) {
+  switch (widget.text) {
+    case "nasbiya":
+      switch (index + 1) {
+        case 1:
+          return itemProvider.shajraNasbiyaImageUrls[0];
+        case 2:
+          return itemProvider.shajraNasbiyaImageUrls[1];
+        case 3:
+          return itemProvider.shajraNasbiyaImageUrls[2];
+        case 37:
+          return itemProvider.shajraNasbiyaImageUrls[3];
+        default:
+          return "";
+      }
+    case "hasbiya":
+      switch (index + 1) {
+        case 1:
+          return itemProvider.shajraHasbiyaImageUrls[0];
+        case 2:
+          return itemProvider.shajraHasbiyaImageUrls[1];
+        case 3:
+          return itemProvider.shajraHasbiyaImageUrls[2];
+        case 17:
+          return itemProvider.shajraHasbiyaImageUrls[3];
+        case 37:
+          return itemProvider.shajraHasbiyaImageUrls[4];
+        case 42:
+          return itemProvider.shajraHasbiyaImageUrls[5];
+        case 43:
+          return itemProvider.shajraHasbiyaImageUrls[6];
+        default:
+          return "";
+      }
+    default:
+      return "";
+  }
+}
+
+// Usage
+
+
 }

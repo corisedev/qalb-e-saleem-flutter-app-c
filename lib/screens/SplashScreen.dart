@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:qalb/getAllData.dart';
 import 'package:qalb/screens/HomeScreen/HomeScreen.dart';
 
 class Splashscreen extends StatefulWidget {
@@ -19,6 +20,7 @@ class _SplashscreenState extends State<Splashscreen>
   @override
   void initState() {
     super.initState();
+    
     _controller = AnimationController(
       duration: const Duration(seconds: 2),
       vsync: this,
@@ -66,6 +68,7 @@ class _SplashscreenState extends State<Splashscreen>
 
   @override
   Widget build(BuildContext context) {
+    GetAllData.getData(context);
     return Scaffold(
       body: Stack(
         children: [

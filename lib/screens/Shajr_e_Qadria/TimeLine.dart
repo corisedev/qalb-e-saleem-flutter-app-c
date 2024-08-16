@@ -7,12 +7,14 @@ class TimelineStep extends StatelessWidget {
   final int stepNumber;
   final String? imagePath;
   final String description;
+  final String name;
 
   const TimelineStep({
     Key? key,
     required this.stepNumber,
     required this.description,
     required this.imagePath,
+    required this.name,
   }) : super(key: key);
 
   @override
@@ -38,7 +40,7 @@ class TimelineStep extends StatelessWidget {
                 color: stepNumber == 1 ? Colors.white : Colors.grey.shade500),
           Container(
             width: double.infinity,
-            height: imagePath == "" ? 100 : 180,
+            height: imagePath == "" ? 70 : 180,
             padding: EdgeInsets.only(
                 top: imagePath == "" ? 0 : 8,
                 right: 8,
@@ -90,13 +92,12 @@ class TimelineStep extends StatelessWidget {
               ],
             ),
           ),
-          if (stepNumber != 27) // idr last step dalna h
             Container(
               height: 20,
               width: 2,
-              color: Colors.grey.shade500,
+              color: name == "nasbiya" ? stepNumber == 37 ? Colors.transparent : Colors.grey.shade500 : stepNumber == 43 ? Colors.transparent : Colors.grey.shade500,
             ),
-        ],
+        ]
       ),
     );
   }

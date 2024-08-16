@@ -6,20 +6,53 @@ import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 
 class DataProvider with ChangeNotifier{
-    List<String> _shajraImageUrls = [];
-    List<int> _shajraImageIndex = [];
+    List<String> _shajraHasbiyaImageUrls = [];
+    List<int> _shajraHasbiyaImageIndex = [];
+    List<String> _shajraNasbiyaImageUrls = [];
+    List<int> _shajraNasbiyaImageIndex = [];
 
-    List<String?>  get shajraImageUrls  => _shajraImageUrls;
-    List<int>  get shajraImageIndex  => _shajraImageIndex;
-    List<String> _majlishImages = [];
+    List<String?>  get shajraHasbiyaImageUrls  => _shajraHasbiyaImageUrls;
+    List<int>  get shajraHasbiyaImageIndex  => _shajraHasbiyaImageIndex;
+    List<String?>  get shajraNasbiyaImageUrls  => _shajraNasbiyaImageUrls;
+    List<int>  get shajraNasbiyaImageIndex  => _shajraNasbiyaImageIndex;
+    List<String> _majlisImages = [];
+    List<String> _majlisThumb = [];
 
-    List<String>  get majlishImages => _majlishImages;
+    List<String>  get majlisImages => _majlisImages;
+    List<String>  get majlisThumb => _majlisThumb;
+    Map<String, String> _pngUrls = {};
+
+  Map<String, String> get pngUrls => _pngUrls;
 
 
 
 
 
-void getShajraImageUrl(String path)async{
+void getShajraNasbiyaImageUrl(String path)async{
+
+ final ListResult result = await FirebaseStorage.instance
+        .ref()
+        .child("shajra_nasbiya/")
+        .listAll();
+
+
+    for (final Reference ref in result.items) {
+      final String url = await ref.getDownloadURL();
+      shajraNasbiyaImageIndex.add(extractIndexFromFileName(ref.toString()));
+
+
+      shajraNasbiyaImageUrls.add(url);
+    }
+
+
+
+
+
+  notifyListeners();
+}
+
+void getShajraHasbiyaImageUrl(String path)async{
+
  final ListResult result = await FirebaseStorage.instance
         .ref()
         .child("shajra_hasbiya/")
@@ -28,17 +61,33 @@ void getShajraImageUrl(String path)async{
 
     for (final Reference ref in result.items) {
       final String url = await ref.getDownloadURL();
-      shajraImageIndex.add(extractIndexFromFileName(ref.toString()));
+      shajraHasbiyaImageIndex.add(extractIndexFromFileName(ref.toString()));
 
 
-      shajraImageUrls.add(url);
-      log(url);
+      shajraHasbiyaImageUrls.add(url);
     }
-    for(var v in shajraImageIndex){
-      log(v.toString());
+  
+
+
+  notifyListeners();
+}
+
+
+void getMajlisThumbUrl()async{
+ final ListResult result = await FirebaseStorage.instance
+        .ref()
+        .child("majlisThumb/")
+        .listAll();
+
+
+    for (final Reference ref in result.items) {
+      final String url = await ref.getDownloadURL();
+
+
+      majlisThumb.add(url);
     }
 
-    log(shajraImageUrls.length.toString());
+
 
 
 
@@ -46,6 +95,7 @@ void getShajraImageUrl(String path)async{
 }
 
 void getMajlisImagesUrl()async{
+  majlisImages.clear();
  final ListResult result = await FirebaseStorage.instance
         .ref()
         .child("majlisImages/")
@@ -54,8 +104,12 @@ void getMajlisImagesUrl()async{
 
     for (final Reference ref in result.items) {
       final String url = await ref.getDownloadURL();
-      majlishImages.add(url);
+      majlisImages.add(url);
     }
+
+    
+
+  
   
 
 
@@ -63,6 +117,21 @@ void getMajlisImagesUrl()async{
 
   notifyListeners();
 }
+
+ Future<void> getPngs() async {
+  pngUrls.clear();
+    final ListResult result = await FirebaseStorage.instance.ref('pngs/').listAll();
+
+    for (Reference ref in result.items) {
+      String fileName = ref.name.split('.').first;
+      
+      String url = await ref.getDownloadURL();
+      
+      _pngUrls[fileName] = url;
+    }
+
+    notifyListeners();
+  }
 
 int extractIndexFromFileName(String filePath) {
   final fileName = filePath.split('/').last;

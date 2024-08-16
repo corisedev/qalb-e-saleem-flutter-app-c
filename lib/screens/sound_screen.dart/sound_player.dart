@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:qalb/screens/sound_screen.dart/text_screen.dart';
@@ -5,17 +7,21 @@ import 'package:qalb/screens/sound_screen.dart/text_screen.dart';
 class SoundPlayer extends StatefulWidget {
   String image;
   String name;
-   SoundPlayer({super.key, required this.image, required this.name});
+  String sub;
+   SoundPlayer({super.key, required this.image, required this.name, required this.sub});
 
   @override
   State<SoundPlayer> createState() => _SoundPlayerState();
 }
 
 class _SoundPlayerState extends State<SoundPlayer> {
+
+
     double position = 0.0;
 
   @override
   Widget build(BuildContext context) {
+      log("-----------------in  sound page name is ${widget.name}");
     return Scaffold(
       backgroundColor: Colors.white,
       body: Padding(
@@ -50,7 +56,7 @@ class _SoundPlayerState extends State<SoundPlayer> {
 
 
 Text(
-            "منقبت",
+            widget.name,
             style: GoogleFonts.almarai(
               fontSize: 20,
               color: Colors.black,
@@ -60,7 +66,7 @@ Text(
           Text(
             textDirection: TextDirection.rtl,
             overflow: TextOverflow.ellipsis,
-            "حضرت سّید محمد ظفر مشہدی قادری رحمة اهلل عليه",
+            widget.sub,
             style: GoogleFonts.almarai(
               fontSize: 13,
               color: Colors.black,

@@ -2,7 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:qalb/screens/HomeScreen/LongBox.dart';
 import 'package:qalb/screens/HomeScreen/smallContainer.dart';
+import 'package:qalb/screens/Shajr_e_Qadria/Shajr_e_Qadria.dart';
+import 'package:qalb/screens/hawashi_wa_hawalajat.dart';
 import 'package:qalb/screens/majlis_screen.dart';
+import 'package:qalb/screens/sound_screen.dart/sound_player.dart';
 
 class Homescreen extends StatefulWidget {
   const Homescreen({super.key});
@@ -32,7 +35,7 @@ class _HomescreenState extends State<Homescreen> {
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(20),
                       image: DecorationImage(
-                          image: AssetImage("assets/images/darbar-shareef.png"),
+                          image: AssetImage("assets/images/darbar.png"),
                           fit: BoxFit.fill)),
                   child: Column(
                     children: [
@@ -74,31 +77,31 @@ class _HomescreenState extends State<Homescreen> {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     SmallContainer(
-                      name: "manqabat",
                       backgroundColor: Colors.transparent,
-                      imagePath: 'assets/images/manqabat.png',
-                      text: 'منقبت',
+                      imagePath: 'assets/images/manqabat-dark.png',
+                      text: '1منقبت',
+                      sub: "حضرت سّید محمد ظفر مشہدی قادری رحمة اهلل عليه"
                     ),
                     SmallContainer(
-                                            name: "manqabat",
 
                       backgroundColor: const Color.fromARGB(255, 20, 5, 128),
                       imagePath: 'assets/images/tashakur.png',
                       text: 'اظہار تشکر',
+                      sub: 'سید محمد فراز شاہ عفی عنہ'
                     ),
                     SmallContainer(
-                                            name: "manqabat",
 
                       backgroundColor: Colors.purple,
-                      imagePath: 'assets/images/muqadma.png',
+                      imagePath: 'assets/images/muqadma-dark.png',
                       text: 'مقّدمۃ الکتاب',
+                      sub: 'حضرت ابو الحقائق پیر سّید امانت علی شاہ چشتی نظامی'
                     ),
                     SmallContainer(
-                                            name: "manqabat",
 
                       backgroundColor: Colors.green,
-                      imagePath: 'assets/images/peshLafz.png',
+                      imagePath: 'assets/images/paish_lafz-dark.png',
                       text: 'پیش لفظ',
+                      sub: 'عبد الحمید قادری عفی عنہ'
                     )
                   ],
                 ),
@@ -177,14 +180,14 @@ class _HomescreenState extends State<Homescreen> {
                     SizedBox(height: 10),
                     LongBox(
                       imagePath: 'assets/images/qalbesaleem.png',
-                      mainText: 'قلب سلیم',
+                      mainText: 'قلبِ سلیم',
                       subText1: 'از رشحاِت قلم',
                       subText2: 'سّید محمد فراز شاہ مشہدی قادری عفی عنہ',
                       backgroundColor: Color(0xFF1373BF),
                     ),
                     SizedBox(height: 10),
                     LongBox(
-                        imagePath: 'assets/images/aqwal.png',
+                        imagePath: 'assets/images/aqwal-white.png',
                         mainText: 'اقوال و ارشاداِت عالیہ',
                         subText1:
                             'امام االولیاء حضرت پیر سّید محّمد عبد اهلل شاہ',
@@ -226,28 +229,48 @@ class _HomescreenState extends State<Homescreen> {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        ClipRRect(
-                          borderRadius: BorderRadius.circular(
-                              20.0), // Radius of the corners
-                          child: Image.asset(
-                            "assets/images/majlis/majlis1.png", // Replace with your image asset
-                            width: MediaQuery.of(context).size.width *
-                                0.46, // Set the desired width
-                            height: 110.0, // Set the desired height
-                            fit: BoxFit
-                                .cover, // Ensures the image covers the entire area
+                        GestureDetector(
+                          onTap: (){
+                         Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) =>
+                  ShajrEQadriaScreen(text: "nasbiya"),
+            ));
+                      },
+                          child: ClipRRect(
+                            borderRadius: BorderRadius.circular(
+                                20.0), // Radius of the corners
+                            child: Image.asset(
+                              "assets/images/shajra_nasbia.png", // Replace with your image asset
+                              width: MediaQuery.of(context).size.width *
+                                  0.46, // Set the desired width
+                              height: 110.0, // Set the desired height
+                              fit: BoxFit
+                                  .cover, // Ensures the image covers the entire area
+                            ),
                           ),
                         ),
-                        ClipRRect(
-                          borderRadius: BorderRadius.circular(
-                              20.0), // Radius of the corners
-                          child: Image.asset(
-                            "assets/images/majlis/majlis1.png", // Replace with your image asset
-                            width: MediaQuery.of(context).size.width *
-                                0.46, // Set the desired width
-                            height: 110.0, // Set the desired height
-                            fit: BoxFit
-                                .cover, // Ensures the image covers the entire area
+                        GestureDetector(
+                          onTap: (){
+                         Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) =>
+                  ShajrEQadriaScreen(text: "hasbiya"),
+            ));
+                      },
+                          child: ClipRRect(
+                            borderRadius: BorderRadius.circular(
+                                20.0), // Radius of the corners
+                            child: Image.asset(
+                              "assets/images/majlis/majlis1.png", // Replace with your image asset
+                              width: MediaQuery.of(context).size.width *
+                                  0.46, // Set the desired width
+                              height: 110.0, // Set the desired height
+                              fit: BoxFit
+                                  .cover, // Ensures the image covers the entire area
+                            ),
                           ),
                         ),
                       ],
@@ -256,42 +279,62 @@ class _HomescreenState extends State<Homescreen> {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Container(
-                          height: 75,
-                          width: MediaQuery.of(context).size.width *
-                              0.46, // Set the desired width
-
-                          alignment: Alignment.center,
-                          decoration: BoxDecoration(
-                              borderRadius:
-                                  BorderRadiusDirectional.circular(15),
-                              color:  Color(0xFF2B3491)),
-                          child: Text(
+                        GestureDetector(
+                          onTap: (){
+                         Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) =>
+                  ShajrEQadriaScreen(text: "nasbiya"),
+            ));
+                      },
+                          child: Container(
+                            height: 75,
+                            width: MediaQuery.of(context).size.width *
+                                0.46, // Set the desired width
                           
-                          "شجرٔہ قادریہ نسبیہ",
-                            style: GoogleFonts.almarai(
-                                fontSize: 15,
-                                fontWeight: FontWeight.bold,
-                                color: Colors.white),
+                            alignment: Alignment.center,
+                            decoration: BoxDecoration(
+                                borderRadius:
+                                    BorderRadiusDirectional.circular(15),
+                                color:  Color(0xFF2B3491)),
+                            child: Text(
+                            
+                            "شجرٔہ قادریہ نسبیہ",
+                              style: GoogleFonts.almarai(
+                                  fontSize: 15,
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.white),
+                            ),
                           ),
                         ),
-                        Container(
-                          height: 75,
-                          width: MediaQuery.of(context).size.width *
-                              0.46, // Set the desired width
-
-                          alignment: Alignment.center,
-                          decoration: BoxDecoration(
-                              borderRadius:
-                                  BorderRadiusDirectional.circular(20),
-                              color:  Color(0xFF2B3491)),
-                          child: Text(
-                            textDirection: TextDirection.rtl,
-                            "شجرٔہ قادریہ حسبیہ",
-                            style: GoogleFonts.almarai(
-                                fontSize: 15,
-                                fontWeight: FontWeight.bold,
-                                color: Colors.white),
+                        GestureDetector(
+                          onTap: (){
+                         Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) =>
+                  ShajrEQadriaScreen(text: "hasbiya"),
+            ));
+                      },
+                          child: Container(
+                            height: 75,
+                            width: MediaQuery.of(context).size.width *
+                                0.46, // Set the desired width
+                          
+                            alignment: Alignment.center,
+                            decoration: BoxDecoration(
+                                borderRadius:
+                                    BorderRadiusDirectional.circular(20),
+                                color:  Color(0xFF2B3491)),
+                            child: Text(
+                              textDirection: TextDirection.rtl,
+                              "شجرٔہ قادریہ حسبیہ",
+                              style: GoogleFonts.almarai(
+                                  fontSize: 15,
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.white),
+                            ),
                           ),
                         )
                       ],
@@ -380,7 +423,7 @@ class _HomescreenState extends State<Homescreen> {
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 10.0),
                 child: LongBox(
-                  imagePath: 'assets/images/sawana-white.png',
+                  imagePath: 'assets/images/alfiraq-white.png',
                   mainText: 'الفراق',
                   subText1: 'از رشحاِت قلم',
                   subText2: 'حضرت سّید محمد ظفر مشہدی قادری رحمة اهلل عليه ',
@@ -394,59 +437,89 @@ class _HomescreenState extends State<Homescreen> {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Container(
-                      height: 60,
-                      width: MediaQuery.of(context).size.width *
-                          0.46, // Set the desired width
-
-                      alignment: Alignment.center,
-                      decoration: BoxDecoration(
-                          borderRadius: BorderRadiusDirectional.circular(20),
-                          color: Color(0xFF00A79D)),
-                      child: Text(
-                        "منقبت",
-                        style: GoogleFonts.almarai(
-                            fontSize: 15,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.white),
+                    GestureDetector(
+                       onTap: (){
+                         Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) =>
+                  SoundPlayer(image: "assets/images/manqabat2-dark.png", name:"2منقبت",sub: 'عبد الحمید قادری عفی عنہ'),
+            ));
+                      },
+                      child: Container(
+                        height: 60,
+                        width: MediaQuery.of(context).size.width *
+                            0.46, // Set the desired width
+                      
+                        alignment: Alignment.center,
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadiusDirectional.circular(20),
+                            color: Color(0xFF00A79D)),
+                        child: Text(
+                          "منقبت",
+                          style: GoogleFonts.almarai(
+                              fontSize: 15,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.white),
+                        ),
                       ),
                     ),
-                    Container(
-                      height: 60,
-                      width: MediaQuery.of(context).size.width *
-                          0.46, // Set the desired width
-
-                      alignment: Alignment.center,
-                      decoration: BoxDecoration(
-                          borderRadius: BorderRadiusDirectional.circular(20),
-                          color: Color(0xFF1373BF)),
-                      child: Text(
-                        "قطعہ تاریخ وصال",
-                        style: GoogleFonts.almarai(
-                            fontSize: 15,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.white),
+                    GestureDetector(
+                      onTap: (){
+                         Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) =>
+                  SoundPlayer(image: "assets/images/qata-dark.png", name:"قطعہ تاریخ وصال",sub: 'حضرت ابو الحقائق پیر سّید امانت علی شاہ چشتی نظامی'),
+            ));
+                      },
+                      child: Container(
+                        height: 60,
+                        width: MediaQuery.of(context).size.width *
+                            0.46, // Set the desired width
+                      
+                        alignment: Alignment.center,
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadiusDirectional.circular(20),
+                            color: Color(0xFF1373BF)),
+                        child: Text(
+                          "قطعہ تاریخ وصال",
+                          style: GoogleFonts.almarai(
+                              fontSize: 15,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.white),
+                        ),
                       ),
                     )
                   ],
                 ),
               ),
               SizedBox(height: 10),
-              Container(
-                margin: EdgeInsets.symmetric(horizontal: 10),
-                height: 60,
-                width: double.infinity, // Set the desired width
-
-                alignment: Alignment.center,
-                decoration: BoxDecoration(
-                    borderRadius: BorderRadiusDirectional.circular(20),
-                    color: Color(0xFF0891C0)),
-                child: Text(
-                  "حواشی و حوالہ جات",
-                  style: GoogleFonts.almarai(
-                      fontSize: 15,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.white),
+              GestureDetector(
+                onTap: (){
+                         Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) =>
+                  hawashiwahawalajatScreen(),
+            ));
+                      },
+                child: Container(
+                  margin: EdgeInsets.symmetric(horizontal: 10),
+                  height: 60,
+                  width: double.infinity, // Set the desired width
+                
+                  alignment: Alignment.center,
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadiusDirectional.circular(20),
+                      color: Color(0xFF0891C0)),
+                  child: Text(
+                    "حواشی و حوالہ جات",
+                    style: GoogleFonts.almarai(
+                        fontSize: 15,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.white),
+                  ),
                 ),
               ),
               SizedBox(height: 10),
