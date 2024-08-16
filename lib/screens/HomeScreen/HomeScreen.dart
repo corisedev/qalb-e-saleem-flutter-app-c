@@ -85,7 +85,7 @@ class _HomescreenState extends State<Homescreen> {
                     SmallContainer(
 
                       backgroundColor: const Color.fromARGB(255, 20, 5, 128),
-                      imagePath: 'assets/images/tashakur.png',
+                      imagePath: '',
                       text: 'اظہار تشکر',
                       sub: 'سید محمد فراز شاہ عفی عنہ'
                     ),
