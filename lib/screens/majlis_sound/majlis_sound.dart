@@ -1,27 +1,26 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:qalb/providers/DataProvider.dart';
+import 'package:qalb/screens/majlis_sound/majlis_text.dart';
+import 'package:qalb/screens/sound_screen.dart/text_screen.dart';
 
 class Majlis_Sound extends StatefulWidget {
-  String  image;
-  String  englishText;
-  String  urduText;
-  int  index;
-   Majlis_Sound({super.key, required this.image,  required this.index,required this.urduText,required this.englishText});
+  String image;
+  String name;
+  String sub;
+  int index;
+   Majlis_Sound({super.key, required this.image, required this.index, required this.name, required this.sub});
 
   @override
   State<Majlis_Sound> createState() => _Majlis_SoundState();
 }
 
 class _Majlis_SoundState extends State<Majlis_Sound> {
-   @override
-  void initState() {
-    super.initState();
-    // Load data in initState
-    Provider.of<DataProvider>(context, listen: false)
-        .getMajlisThumbUrl();
-  }
+
+
     double position = 0.0;
 
   @override
@@ -33,21 +32,15 @@ class _Majlis_SoundState extends State<Majlis_Sound> {
         child: Column(
           children: [
             SizedBox(height: 70),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                                
-                Row(
-                  children: [
-                    Container(alignment: Alignment.center,width: 25,height:25,decoration: BoxDecoration(shape: BoxShape.circle, color: Colors.grey[500]),
-                    child: Text("${widget.index+1}", style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold)),
-                    ),
-                    SizedBox(width:10),
-                    Text("مجلس", style: GoogleFonts.almarai(fontSize: 20, fontWeight:FontWeight.bold, color: Colors.grey[500])),
-                  ],
-                ),
-                Image.asset("assets/images/back-arrow-grey.png",width:25),
-              ],
+            Padding(
+              padding:  EdgeInsets.only(left:MediaQuery.of(context).size.width*0.32),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text("قلبِ سلیم", style: GoogleFonts.almarai(fontSize: 20, fontWeight:FontWeight.bold, color: Colors.grey[500])),
+                  Image.asset("assets/images/back-arrow-grey.png",width:25),
+                ],
+              ),
             ),
             SizedBox(height: 50),
             Hero(
@@ -55,10 +48,10 @@ class _Majlis_SoundState extends State<Majlis_Sound> {
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(20.0), // Radius of the corners
                 child: Image.network(
-                  widget.image,
-                  width: double.infinity, 
-                  height: 320.0,
-                  fit: BoxFit.fill,
+                  widget.image, // Replace with your image asset
+                  width: double.infinity, // Set the desired width
+                  height: 320.0, // Set the desired height
+                  fit: BoxFit.fill, // Ensures the image covers the entire area
                 ),
               ),
             ),
@@ -66,7 +59,7 @@ class _Majlis_SoundState extends State<Majlis_Sound> {
 
 
 Text(
-            "${widget.urduText}",
+            widget.name,
             style: GoogleFonts.almarai(
               fontSize: 20,
               color: Colors.black,
@@ -76,7 +69,7 @@ Text(
           Text(
             textDirection: TextDirection.ltr,
             overflow: TextOverflow.ellipsis,
-            widget.englishText,
+            widget.sub,
             style: GoogleFonts.almarai(
               fontSize: 13,
               color: Colors.black,
@@ -100,11 +93,7 @@ Text(
           Positioned(
             left: position, // Adjust the ball's position
             child: GestureDetector(
-              onHorizontalDragUpdate: (details) {
-                 setState(() {
-                  position = (details.localPosition.dx / MediaQuery.of(context).size.width).clamp(0.0, 1.0);
-                });
-              },
+          
               child: Container(
                 width: 35, height:35,
                 decoration: BoxDecoration(
@@ -114,7 +103,7 @@ Text(
                 child: Image.asset(
                   fit: BoxFit.fill,
                   'assets/images/timeline.png',
-                  width: 30.0,  // Adjust based on your image size
+                  width: 30.0, 
                   height: 30.0,
                 ),
               ),
@@ -129,12 +118,13 @@ Row(
   children: [
     GestureDetector(
       onTap: (){
-                // Navigator.push(context, MaterialPageRoute(builder: (context) => TextScreen(image: widget.image, name: widget.name,),));
+                Navigator.push(context, MaterialPageRoute(builder: (context) => Majlis_Text(image: widget.image, name: widget.name,file:Provider.of<DataProvider>(context, listen: false).majlisText[widget.index]),));
 
       },
-      child: Image.asset("assets/images/read.png", width: 35,)),
-    Image.asset("assets/images/play.png", width: 60,),
-    Image.asset("assets/images/share-grey.png", width: 35,),
+      child: 
+      Image.asset("assets/images/read.png", width: 35,)),
+      Image.asset("assets/images/play.png", width: 60,),
+      Image.asset("assets/images/share-grey.png", width: 35,),
   ],
 )
           ],

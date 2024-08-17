@@ -21,7 +21,6 @@ class _SoundPlayerState extends State<SoundPlayer> {
 
   @override
   Widget build(BuildContext context) {
-      log("-----------------in  sound page name is ${widget.name}");
     return Scaffold(
       backgroundColor: Colors.white,
       body: Padding(
@@ -104,7 +103,7 @@ Text(
                 child: Image.asset(
                   fit: BoxFit.fill,
                   'assets/images/timeline.png',
-                  width: 30.0,  // Adjust based on your image size
+                  width: 30.0, 
                   height: 30.0,
                 ),
               ),
@@ -122,9 +121,10 @@ Row(
                 Navigator.push(context, MaterialPageRoute(builder: (context) => TextScreen(image: widget.image, name: widget.name,),));
 
       },
-      child: Image.asset("assets/images/read.png", width: 35,)),
-    Image.asset("assets/images/play.png", width: 60,),
-    Image.asset("assets/images/share-grey.png", width: 35,),
+      child: 
+      Image.asset("assets/images/read.png", width: 35,)),
+      Image.asset("assets/images/play.png", width: 60,),
+      Image.asset("assets/images/share-grey.png", width: 35,),
   ],
 )
           ],

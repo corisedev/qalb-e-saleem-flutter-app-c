@@ -1,37 +1,32 @@
-import 'dart:developer';
 
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_html/flutter_html.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:lottie/lottie.dart';
+import 'package:http/http.dart' as http;
+import 'dart:convert';
 
-class TextScreen extends StatefulWidget {
+
+class Majlis_Text extends StatefulWidget {
   final String image;
   final String name;
+  final String file;
 
-  TextScreen({super.key, required this.image, required this.name});
+  Majlis_Text({super.key, required this.image, required this.name,required this.file});
 
   @override
-  State<TextScreen> createState() => _TextScreenState();
+  State<Majlis_Text> createState() => _Majlis_TextState();
 }
 
-class _TextScreenState extends State<TextScreen> {
-  String fileText = '';
-
+class _Majlis_TextState extends State<Majlis_Text> {
+late Future<String> _htmlContent;
   @override
   void initState() {
     super.initState();
-    textFile();
+     _htmlContent = fetchHtmlContent(widget.file);
   }
 
-  Future<void> textFile() async {
-    log("--------------${widget.name}-----${getTextFile()}");
-    String fileContent = await rootBundle.loadString(getTextFile());
-    setState(() {
-      fileText = fileContent;
-    });
-  }
+
 
   @override
   Widget build(BuildContext context) {
@@ -61,12 +56,9 @@ class _TextScreenState extends State<TextScreen> {
                             children: [
                               Row(
                                 children: [
-                                  getImageAddress() == "" ? Image.network(
+                                  Image.network(
                                     widget.image, width:80
-                                  ) :Image.asset(
-                                    getImageAddress(),
-                                    width: 80,
-                                  ),
+                                  ) ,
                                   SizedBox(width: 10),
                                   Image.asset(
                                     "assets/images/pause-white.png",
@@ -77,12 +69,16 @@ class _TextScreenState extends State<TextScreen> {
                               Row(
                                 crossAxisAlignment: CrossAxisAlignment.center,
                                 children: [
-                                  Text(
-                                    widget.name,
-                                    style: GoogleFonts.almarai(
-                                      fontSize: 12,
-                                      fontWeight: FontWeight.bold,
-                                      color: Colors.white,
+                                  SizedBox(
+                                    width: 130,
+                                    child: Text(textDirection: TextDirection.rtl,
+                                      overflow: TextOverflow.clip,
+                                      widget.name,
+                                      style: GoogleFonts.almarai(
+                                        fontSize: 12,
+                                        fontWeight: FontWeight.bold,
+                                        color: Colors.white,
+                                      ),
                                     ),
                                   ),
                                   SizedBox(width: 10),
@@ -136,7 +132,7 @@ class _TextScreenState extends State<TextScreen> {
               child: Container(
                 height: MediaQuery.of(context).size.height * 0.7,
                 margin: EdgeInsets.symmetric(vertical: 20, horizontal: 20),
-                padding: EdgeInsets.symmetric(vertical: 20, horizontal: 15),
+                padding: EdgeInsets.symmetric(vertical: 20, horizontal: 7),
                 decoration: BoxDecoration(
                   color: Colors.white,
                   borderRadius: BorderRadius.circular(20),
@@ -152,7 +148,19 @@ class _TextScreenState extends State<TextScreen> {
                       SizedBox(height: 30),
                       Text(widget.name, style: TextStyle(fontFamily:"al-quran",fontSize: 25,color: Color.fromARGB(255, 15, 199, 181)),),
         SizedBox(height:widget.name == "شجرٔہ قادریہ نسبیہ" || widget.name == "شجرٔہ قادریہ حسبیہ" ? 0 : 30),
-                      Html(data: fileText),
+                      FutureBuilder<String>(
+        future: _htmlContent,
+        builder: (context, snapshot) {
+          if (snapshot.connectionState == ConnectionState.waiting) {
+            return Center(child: Container());
+          } else if (snapshot.hasError) {
+            return Center(child: Text('Error: ${snapshot.error}'));
+          } else {
+            return Html(data: snapshot.data);
+          }
+        },
+      ),
+    
                       SizedBox(height: 30),
                       Image.asset("assets/images/motive.png", width: 100),
                       SizedBox(height: 100),
@@ -167,60 +175,33 @@ class _TextScreenState extends State<TextScreen> {
     );
   }
 
-  String getImageAddress() {
-    final imageMap = {
-      "1منقبت": "assets/images/manqabat-white.png",
-      "اظہار تشکر": "assets/images/izhar-white.png",
-      "الفراق": "assets/images/alfiraq-white.png",
-      "مقّدمۃ الکتاب": "assets/images/muqadma-white.png",
-      "پیش لفظ": "assets/images/paish_lafz-white.png",
-      "سوانح حیات": "assets/images/sawana-white.png",
-      "قلبِ سلیم": "assets/images/qalbesaleem.png",
-      "شجرٔہ قادریہ حسبیہ": "assets/images/shajra_hasbia.jpg",
-      "شجرٔہ قادریہ نسبیہ": "assets/images/shajra_nasbia.png",
-      "قطعہ تاریخ وصال": "assets/images/qata-white.png",
-      "2منقبت": "assets/images/manqabat2-white.png",
-    };
-    return imageMap[widget.name] ?? "";
+  Future<String> fetchHtmlContent(String url) async {
+    final response = await http.get(Uri.parse(url));
+    if (response.statusCode == 200) {
+      // Check and handle encoding if necessary
+      final contentType = response.headers['content-type'];
+      if (contentType != null && contentType.contains('charset=')) {
+        final charset = contentType.split('charset=')[1];
+        return _convertToUtf8(response.bodyBytes, charset);
+      } else {
+        return utf8.decode(response.bodyBytes);
+      }
+    } else {
+      throw Exception('Failed to load HTML content');
+    }
   }
+  String _convertToUtf8(List<int> bytes, String charset) {
+    try {
+      final encoding = Encoding.getByName(charset) ?? utf8;
+      return encoding.decode(bytes);
+    } catch (e) {
+      return utf8.decode(bytes); // Fallback to UTF-8
+    }
+  }
+  }
+
+
   
 
-  String getTextFile() {
-    final textFileMap = {
-      "اظہار تشکر": "assets/textFiles/tashakur.html",
-      "مقّدمۃ الکتاب": "assets/textFiles/maqadma.html",
-      "الفراق": "assets/textFiles/alfiraq.html",
-      "پیش لفظ": "assets/textFiles/peshLafz.html",
-      "سوانح حیات": "assets/textFiles/sawana.html",
-      "قلبِ سلیم": "assets/textFiles/qalb.html",
-      "شجرٔہ قادریہ حسبیہ": "assets/textFiles/hasbia.html",
-      "شجرٔہ قادریہ نسبیہ": "assets/textFiles/nasbiya.html",
-      "قطعہ تاریخ وصال": "assets/textFiles/qata.html",
-      "1منقبت": "assets/textFiles/manqabat1.html",
-      "2منقبت": "assets/textFiles/manqabat2.html",
-      "1": "assets/textFiles/01.html",
-      "2": "assets/textFiles/02.html",
-      "3": "assets/textFiles/03.html",
-      "4": "assets/textFiles/04.html",
-      "5": "assets/textFiles/05.html",
-      "6": "assets/textFiles/06.html",
-      "7": "assets/textFiles/07.html",
-      "8": "assets/textFiles/08.html",
-      "9": "assets/textFiles/09.html",
-      "10": "assets/textFiles/10.html",
-      "11": "assets/textFiles/11.html",
-      "12": "assets/textFiles/12.html",
-      "13": "assets/textFiles/13.html",
-      "14": "assets/textFiles/14.html",
-      "15": "assets/textFiles/15.html",
-      "16": "assets/textFiles/16.html",
-      "17": "assets/textFiles/17.html",
-      "18": "assets/textFiles/18.html",
-      "19": "assets/textFiles/19.html",
-      "20": "assets/textFiles/20.html",
-
-    };
-    return textFileMap[widget.name] ?? "";
-  }
   
-}
+

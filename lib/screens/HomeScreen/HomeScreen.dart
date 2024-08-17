@@ -85,7 +85,7 @@ class _HomescreenState extends State<Homescreen> {
                     SmallContainer(
 
                       backgroundColor: const Color.fromARGB(255, 20, 5, 128),
-                      imagePath: '',
+                      imagePath: 'assets/images/tashakur.png',
                       text: 'اظہار تشکر',
                       sub: 'سید محمد فراز شاہ عفی عنہ'
                     ),
@@ -343,75 +343,95 @@ class _HomescreenState extends State<Homescreen> {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Container(
-                          height: 75,
-                          width: MediaQuery.of(context).size.width *
-                              0.46, // Set the desired width
-
-                          alignment: Alignment.center,
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadiusDirectional.circular(20),
-                            color: Colors.transparent,
-                            border: Border.all(
-                              color: Colors.white,
-                            ),
-                          ),
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                               Text(
+                        GestureDetector(
+                          onTap: (){
+                         Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) =>
+                  SoundPlayer(image: "assets/images/shajra_nasbia.png", name:"شجرٔہ قادریہ نسبیہ",sub: "منظوم مع تضمین"),
+            ));
+                      },
+                          child: Container(
+                            height: 75,
+                            width: MediaQuery.of(context).size.width *
+                                0.46, // Set the desired width
                           
-                          "شجرٔہ قادریہ نسبیہ",
-                            style: GoogleFonts.almarai(
-                                fontSize: 15,
-                                fontWeight: FontWeight.bold,
-                                color: Colors.white),
-                          ),
-                              Text(
-                                                            textDirection: TextDirection.rtl,
-                              
-                                "منظوم مع تضمین",
-                                style: GoogleFonts.almarai(
-                                    fontSize: 15,
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.white),
+                            alignment: Alignment.center,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadiusDirectional.circular(20),
+                              color: Colors.transparent,
+                              border: Border.all(
+                                color: Colors.white,
                               ),
-                            ],
+                            ),
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                 Text(
+                            
+                            "شجرٔہ قادریہ نسبیہ",
+                              style: GoogleFonts.almarai(
+                                  fontSize: 15,
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.white),
+                            ),
+                                Text(
+                                                              textDirection: TextDirection.rtl,
+                                
+                                  "منظوم مع تضمین",
+                                  style: GoogleFonts.almarai(
+                                      fontSize: 15,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.white),
+                                ),
+                              ],
+                            ),
                           ),
                         ),
-                        Container(
-                          height: 75,
-                          width: MediaQuery.of(context).size.width *
-                              0.46, // Set the desired width
-
-                          alignment: Alignment.center,
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadiusDirectional.circular(20),
-                            color: Colors.transparent,
-                            border: Border.all(
-                              color: Colors.white,
+                        GestureDetector(
+                          onTap: (){
+                         Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) =>
+                  SoundPlayer(image: "assets/images/shajra_hasbia.jpg", name:"شجرٔہ قادریہ حسبیہ",sub: "منظوم مع تضمین"),
+            ));
+                      },
+                          child: Container(
+                            height: 75,
+                            width: MediaQuery.of(context).size.width *
+                                0.46, // Set the desired width
+                          
+                            alignment: Alignment.center,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadiusDirectional.circular(20),
+                              color: Colors.transparent,
+                              border: Border.all(
+                                color: Colors.white,
+                              ),
                             ),
-                          ),
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Text(
-                            textDirection: TextDirection.rtl,
-                            "شجرٔہ قادریہ حسبیہ",
-                            style: GoogleFonts.almarai(
-                                fontSize: 15,
-                                fontWeight: FontWeight.bold,
-                                color: Colors.white),
-                          ),
-                           Text(
-                            textDirection: TextDirection.rtl,
-                          "منظوم مع تضمین",
-                            style: GoogleFonts.almarai(
-                                fontSize: 15,
-                                fontWeight: FontWeight.bold,
-                                color: Colors.white),
-                          ),
-                            ],
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Text(
+                              textDirection: TextDirection.rtl,
+                              "شجرٔہ قادریہ حسبیہ",
+                              style: GoogleFonts.almarai(
+                                  fontSize: 15,
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.white),
+                            ),
+                             Text(
+                              textDirection: TextDirection.rtl,
+                            "منظوم مع تضمین",
+                              style: GoogleFonts.almarai(
+                                  fontSize: 15,
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.white),
+                            ),
+                              ],
+                            ),
                           ),
                         )
                       ],
