@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:qalb/screens/aqwal_wa_irshadaat/aqwal_wa_irshadaat.dart';
 import 'package:qalb/screens/sound_screen.dart/sound_player.dart';
 
 class LongBox extends StatelessWidget {
@@ -24,12 +25,12 @@ class LongBox extends StatelessWidget {
     return GestureDetector(
       onTap: () {
        if(getImageAddress() == "akwal"){
-        //  Navigator.push(
-        //     context,
-        //     MaterialPageRoute(
-        //       builder: (context) =>
+         Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) =>AqwalWaIrshadaatScreen()
                 
-        //     ));
+            ));
        }else{
          Navigator.push(
             context,

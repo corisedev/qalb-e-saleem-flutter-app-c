@@ -121,7 +121,7 @@ class _MajlisState extends State<Majlis> {
 Widget majlisContainer(String image, int index) {
   return GestureDetector(
     onTap: (){
-      Navigator.push(context, MaterialPageRoute(builder: (context) => Majlis_Sound(image: Provider.of<DataProvider>(context, listen: false).majlisThumb[index], index: index, urduText: TextData.majlisUrdu[index], englishText: TextData.majlisEnglish[index],),));
+      Navigator.push(context, MaterialPageRoute(builder: (context) => Majlis_Sound(image: Provider.of<DataProvider>(context, listen: false).majlisThumb[index], index: index, name: TextData.majlisUrdu[index], sub: TextData.majlisEnglish[index],),));
     },
     child: Container(
       width: MediaQuery.of(context).size.width * 0.9,

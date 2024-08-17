@@ -71,12 +71,13 @@ class TimelineStep extends StatelessWidget {
                   borderRadius: BorderRadiusDirectional.circular(10),
                   child: imagePath == ""
                       ? Container()
-                      : Flexible(
-                          child: Image.network(
-                            imagePath!,
-                            fit: BoxFit.cover,
-                          ),
-                        ),
+                      : imagePath == "" 
+    ? Container() 
+    : Image.network(
+        imagePath!,
+        fit: BoxFit.cover,
+      ),
+
                 ),
 
                 Text(
