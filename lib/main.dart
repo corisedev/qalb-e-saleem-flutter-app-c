@@ -4,7 +4,6 @@ import 'package:provider/provider.dart';
 import 'package:qalb/firebase_options.dart';
 import 'package:qalb/providers/DataProvider.dart';
 import 'package:qalb/screens/SplashScreen.dart';
-import 'package:qalb/screens/aqwal_wa_irshadaat/aqwal_wa_irshadaat.dart';
 import 'package:qalb/utils/firebase_methods.dart';
 
 //     3B8ABF27-63E1-4443-8862-BD2DF60F5F1F debug token

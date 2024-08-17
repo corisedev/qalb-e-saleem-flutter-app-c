@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
@@ -71,10 +70,8 @@ class _AqwalWaIrshadaatScreenState extends State<AqwalWaIrshadaatScreen> {
                         Column(
                           mainAxisAlignment: MainAxisAlignment.start,
                           children: [
-                            SvgPicture.asset(
-                              "assets/images/back-arrow-white.png",
-                              width: 22,
-                            ),
+                            Image.asset("assets/images/back-arrow-white.png",
+                                width: 25),
                           ],
                         ),
                       ],
