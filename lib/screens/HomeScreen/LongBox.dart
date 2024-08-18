@@ -8,6 +8,7 @@ class LongBox extends StatelessWidget {
   final String mainText;
   final String subText1;
   final String subText2;
+  final String audioPath;
   final Color backgroundColor;
 
   LongBox({
@@ -15,30 +16,33 @@ class LongBox extends StatelessWidget {
     required this.mainText,
     required this.subText1,
     required this.subText2,
+    required this.audioPath,
     required this.backgroundColor,
   });
 
   @override
   Widget build(BuildContext context) {
     String image = "";
-    
+
     return GestureDetector(
       onTap: () {
-       if(getImageAddress() == "akwal"){
-         Navigator.push(
-            context,
-            MaterialPageRoute(
-              builder: (context) =>AqwalWaIrshadaatScreen()
-                
-            ));
-       }else{
-         Navigator.push(
-            context,
-            MaterialPageRoute(
-              builder: (context) =>
-                  SoundPlayer(image: getImageAddress(), name: mainText, sub: subText2),
-            ));
-       }
+        if (getImageAddress() == "akwal") {
+          Navigator.push(
+              context,
+              MaterialPageRoute(
+                  builder: (context) => AqwalWaIrshadaatScreen()));
+        } else {
+          Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => SoundPlayer(
+                  image: getImageAddress(),
+                  name: mainText,
+                  sub: subText2,
+                  audioPath: audioPath,
+                ),
+              ));
+        }
       },
       child: Container(
         padding: const EdgeInsets.symmetric(horizontal: 10.0, vertical: 0),
@@ -103,18 +107,15 @@ class LongBox extends StatelessWidget {
     );
   }
 
-  String getImageAddress(){
-    if(mainText == "سوانح حیات" ){
-return "assets/images/sawane-dark.png";
-    }else if(mainText == 'قلبِ سلیم'){
-return "assets/images/qalb_e_saleem-dark.png";
-
-    }else if(mainText == 'الفراق'){
-return "assets/images/alfiraq-dark.png";
-
-    }else{
-return "akwal";
-
+  String getImageAddress() {
+    if (mainText == "سوانح حیات") {
+      return "assets/images/sawane-dark.png";
+    } else if (mainText == 'قلبِ سلیم') {
+      return "assets/images/qalb_e_saleem-dark.png";
+    } else if (mainText == 'الفراق') {
+      return "assets/images/alfiraq-dark.png";
+    } else {
+      return "akwal";
     }
   }
 }

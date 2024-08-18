@@ -44,6 +44,7 @@ dependencies:
   provider: ^6.1.2
   smooth_page_indicator: ^1.2.0+3
   firebase_app_check: ^0.2.1+8
+  audioplayers: ^5.2.1
 
 dev_dependencies:
   flutter_test:
@@ -74,6 +75,7 @@ flutter:
     - assets/images/Aqwal_E_Irshadaat_Pictures/
     - assets/images/majlis/
     - assets/textFiles/
+    - assets/Audios/
     # - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
