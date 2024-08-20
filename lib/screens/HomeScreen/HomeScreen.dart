@@ -81,28 +81,28 @@ class _HomescreenState extends State<Homescreen> {
                       imagePath: 'assets/images/manqabat-dark.png',
                       text: 'منقبت',
                       sub: "حضرت سّید محمد ظفر مشہدی قادری رحمة اهلل عليه",
-                      audioPath: 'Audios/manqabat (z).mp3',
+                     audioPath: 'Audios/al firaaq.mp3',
                     ),
                     SmallContainer(
                       backgroundColor: const Color.fromARGB(255, 20, 5, 128),
                       imagePath: 'assets/images/tashakur.png',
                       text: 'اظہار تشکر',
                       sub: 'سید محمد فراز شاہ عفی عنہ',
-                      audioPath: 'Audios/izhaar e tashakur.mp3',
+                      audioPath: 'Audios/al firaaq.mp3',
                     ),
                     SmallContainer(
                       backgroundColor: Colors.purple,
                       imagePath: 'assets/images/muqadma-dark.png',
                       text: 'مقّدمۃ الکتاب',
                       sub: 'حضرت ابو الحقائق پیر سّید امانت علی شاہ چشتی نظامی',
-                      audioPath: 'Audios/muqadmatul kitab.mp3',
+                      audioPath: 'Audios/al firaaq.mp3',
                     ),
                     SmallContainer(
                       backgroundColor: Colors.green,
                       imagePath: 'assets/images/paish_lafz-dark.png',
                       text: 'پیش لفظ',
                       sub: 'عبد الحمید قادری عفی عنہ',
-                      audioPath: 'Audios/paish lafz.mp3',
+                     audioPath: 'Audios/al firaaq.mp3',
                     ),
                   ],
                 ),
@@ -172,7 +172,7 @@ class _HomescreenState extends State<Homescreen> {
                     //   );
                     // }
                     LongBox(
-                      audioPath: 'Audios/sawaneh hayaat.mp3',
+                      audioPath: 'Audios/al firaaq.mp3',
                       imagePath: 'assets/images/sawana-white.png',
                       mainText: "سوانح حیات",
                       subText1: "از رشحاِت قلم:",
@@ -182,7 +182,7 @@ class _HomescreenState extends State<Homescreen> {
                     ),
                     SizedBox(height: 10),
                     LongBox(
-                      audioPath: 'Audios/qalb e saleem.mp3',
+                      audioPath: 'Audios/al firaaq.mp3',
                       imagePath: 'assets/images/qalbesaleem.png',
                       mainText: 'قلبِ سلیم',
                       subText1: 'از رشحاِت قلم',
@@ -191,7 +191,7 @@ class _HomescreenState extends State<Homescreen> {
                     ),
                     SizedBox(height: 10),
                     LongBox(
-                        audioPath: 'Audios/paish lafz.mp3',
+                        audioPath: 'Audios/al firaaq.mp3',
                         imagePath: 'assets/images/aqwal-white.png',
                         mainText: 'اقوال و ارشاداِت عالیہ',
                         subText1:
@@ -478,7 +478,7 @@ class _HomescreenState extends State<Homescreen> {
                                 image: "assets/images/manqabat2-dark.png",
                                 name: "منقبت",
                                 sub: 'عبد الحمید قادری عفی عنہ',
-                                audioPath: 'Audios/manqabat (a).mp3',
+                                audioPath: 'Audios/al firaaq.mp3',
                               ),
                             ));
                       },
@@ -510,7 +510,7 @@ class _HomescreenState extends State<Homescreen> {
                                 name: "قطعہ تاریخ وصال",
                                 sub:
                                     'حضرت ابو الحقائق پیر سّید امانت علی شاہ چشتی نظامی',
-                                audioPath: 'Audios/qatae tareekh visal.mp3',
+                                audioPath: 'Audios/al firaaq.mp3',
                               ),
                             ));
                       },
