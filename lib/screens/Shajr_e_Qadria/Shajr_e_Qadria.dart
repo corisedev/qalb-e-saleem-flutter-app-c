@@ -77,8 +77,14 @@ class _ShajrEQadriaScreenState extends State<ShajrEQadriaScreen> {
                               textAlign: TextAlign.right,
                             ),
                             SizedBox(width: 10),
-                            Image.asset("assets/images/back-arrow-white.png",
-                                width: 25),
+                            InkWell(
+                              onTap: () {
+                                Navigator.pop(context);
+                              },
+                              child: Image.asset(
+                                  "assets/images/back-arrow-white.png",
+                                  width: 25),
+                            ),
                           ],
                         ),
                       ),

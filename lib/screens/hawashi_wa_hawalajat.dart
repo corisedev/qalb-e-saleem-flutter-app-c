@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class hawashiwahawalajatScreen extends StatefulWidget {
@@ -68,10 +67,15 @@ class _hawashiwahawalajatScreenState extends State<hawashiwahawalajatScreen> {
                           Column(
                               mainAxisAlignment: MainAxisAlignment.start,
                               children: [
-                                Container(
-                                  child: Image.asset(
-                                    "assets/images/back-arrow-white.png",
-                                    width: 26,
+                                InkWell(
+                                  onTap: () {
+                                    Navigator.pop(context);
+                                  },
+                                  child: Container(
+                                    child: Image.asset(
+                                      "assets/images/back-arrow-white.png",
+                                      width: 26,
+                                    ),
                                   ),
                                 ),
                               ]),
