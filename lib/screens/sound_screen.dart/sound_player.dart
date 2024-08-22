@@ -26,7 +26,6 @@ class _SoundPlayerState extends State<SoundPlayer> {
   bool _isPlaying = false;
   Duration _duration = Duration.zero;
   Duration _position = Duration.zero;
-  // double position = 0.0;
 
   @override
   void initState() {
@@ -82,6 +81,13 @@ class _SoundPlayerState extends State<SoundPlayer> {
     setState(() {
       _position = position;
     });
+  }
+
+  String _formatDuration(Duration duration) {
+    String twoDigits(int n) => n.toString().padLeft(2, '0');
+    final minutes = twoDigits(duration.inMinutes.remainder(60));
+    final seconds = twoDigits(duration.inSeconds.remainder(60));
+    return '$minutes:$seconds';
   }
 
   @override
@@ -144,43 +150,7 @@ class _SoundPlayerState extends State<SoundPlayer> {
                   color: Colors.black,
                 ),
               ),
-              SizedBox(height: 40),
-              // Stack(
-              //   clipBehavior: Clip.none,
-              //   alignment: Alignment.centerLeft,
-              //   children: [
-              //     Container(
-              //       height: 2.0,
-              //       width: double.infinity,
-              //       color: Colors.grey[300],
-              //     ),
-              //     Positioned(
-              //       left: position,
-              //       child: GestureDetector(
-              //         onHorizontalDragUpdate: (details) {
-              //           setState(() {
-              //             position = (details.localPosition.dx /
-              //                     MediaQuery.of(context).size.width)
-              //                 .clamp(0.0, 1.0);
-              //           });
-              //         },
-              //         child: Container(
-              //           width: 35,
-              //           height: 35,
-              //           decoration: BoxDecoration(
-              //               shape: BoxShape.circle,
-              //               border: Border.all(color: Colors.white, width: 3)),
-              //           child: Image.asset(
-              //             fit: BoxFit.fill,
-              //             'assets/images/timeline.png',
-              //             width: 30.0,
-              //             height: 30.0,
-              //           ),
-              //         ),
-              //       ),
-              //     ),
-              //   ],
-              // ),
+              SizedBox(height: 20),
               SliderTheme(
                 data: SliderTheme.of(context).copyWith(
                   activeTrackColor: Colors.grey,
@@ -199,7 +169,24 @@ class _SoundPlayerState extends State<SoundPlayer> {
                   },
                 ),
               ),
-              SizedBox(height: 20),
+              // ----------------------TIME of AUDIO---------------
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      _formatDuration(_position),
+                      style: TextStyle(color: Colors.black),
+                    ),
+                    Text(
+                      _formatDuration(_duration),
+                      style: TextStyle(color: Colors.black),
+                    ),
+                  ],
+                ),
+              ),
+              SizedBox(height: 10),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -265,18 +252,16 @@ class CustomRoundSliderThumbShape extends SliderComponentShape {
   }) {
     final Canvas canvas = context.canvas;
 
-    // Draw outer grey circle
     final Paint outerPaint = Paint()
       ..color = sliderTheme.thumbColor!
       ..style = PaintingStyle.fill;
 
     canvas.drawCircle(center, 12.0, outerPaint);
 
-    // Draw inner white circle
     final Paint innerPaint = Paint()
       ..color = Colors.white
       ..style = PaintingStyle.fill;
 
-    canvas.drawCircle(center, 5.0, innerPaint); // Small white circle
+    canvas.drawCircle(center, 5.0, innerPaint);
   }
 }
