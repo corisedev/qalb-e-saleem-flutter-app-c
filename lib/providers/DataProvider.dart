@@ -3,6 +3,7 @@ import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 
 class DataProvider with ChangeNotifier {
+  
 
   // -----------  LIST WITH FIREBASE DATA -------------- //
   List<String> _shajraHasbiyaImageUrls = [];

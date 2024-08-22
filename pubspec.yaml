@@ -72,8 +72,8 @@ flutter:
   assets:
     - assets/images/
     - assets/
-    - assets/images/Aqwal_E_Irshadaat_Pictures/
-    - assets/images/majlis/
+    # - assets/images/Aqwal_E_Irshadaat_Pictures/
+    # - assets/images/majlis/
     - assets/textFiles/
     - assets/Audios/
     # - images/a_dot_ham.jpeg
